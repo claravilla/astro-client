@@ -36,3 +36,47 @@
     transform: rotate(360deg);
   }
 }
+
+.myContainer {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px;
+}
+.myCard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: #dff6ff;
+  background-clip: border-box;
+  border: 1px solid #051367;
+  border-radius: 0.25rem;
+  margin: 10px;
+  width: 350px;
+  color: #051367;
+}
+
+.myCard-img {
+  width: 350px;
+}
+
+.object-card-btn {
+  border-radius: 10px;
+  padding: 10px;
+  color: white;
+  margin: 30px 0;
+  text-decoration: none;
+}
+
+.light-blue {
+  background-color: #dff6ff;
+}
+
+.medium-blue {
+  background-color: #5d8bf4;
+}
+
+.dark-blue {
+  background-color: #051367;
+}

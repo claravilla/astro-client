@@ -23,7 +23,7 @@ function ObjectList() {
   }, []);
 
   return (
-    <div className="myContainer">
+    <div className="my-container">
       {isLoading && <div>Content Laoding...</div>}
 
       {!isLoading &&

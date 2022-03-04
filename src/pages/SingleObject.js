@@ -1,10 +1,12 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
+import CommentCard from "../components/CommentCard";
 
 function SingleObject() {
   const { id } = useParams();
   const [spaceObject, setSpaceObject] = useState({});
+  const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
   const url = `http://localhost:5005/api/astro-objects/${id}`;
@@ -14,6 +16,7 @@ function SingleObject() {
       .get(url)
       .then((data) => {
         setSpaceObject(data.data);
+        setComments(data.data.comments);
         setIsLoading(false);
       })
       .catch((error) => {
@@ -87,6 +90,12 @@ function SingleObject() {
               ></img>
             </a>
           </div>
+          <div className="comments-section">
+            <h3>Comments</h3>
+            {comments.map((eachComment) => {
+              return <CommentCard comment={eachComment} />;
+            })}
+          </div>
         </div>
       )}
     </div>
@@ -94,21 +103,3 @@ function SingleObject() {
 }
 
 export default SingleObject;
-//  ngc: "NGC 1952",
-//     latinName: "Taurus",
-//     mag: 8,
-//     messier: "M1",
-//     distance: 6500,
-//     englishName: "Bull",
-//     dec: "+22:00:52.1",
-//     ra: "05:34:31.97",
-//     dimension: "6,0' x 4,0'",
-//     season: "Winter",
-//     discoveredBy: "Bévis",
-//     object: "Supernova remnant",
-//     imageMap: "http://www.lasam.ca/messier/M001.JPG",
-//     commonName: "Crab Nebula",
-//     image:
-//       "https://www.nasa.gov/sites/default/files/styles/full_width/public/thumbnails/image/crab-nebula-mosaic.jpg?itok=DNaRmPtc",
-//     difficulty: "medium",
-//     score: 15,

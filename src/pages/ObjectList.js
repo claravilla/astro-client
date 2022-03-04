@@ -12,9 +12,13 @@ function ObjectList() {
     axios
       .get(url)
       .then((data) => {
-        console.log(data.data[0]);
-        setObjectsData(data.data);
-        setObjects(data.data);
+        let messierOrdered = data.data.sort((a, b) => {
+          return (
+            parseInt(a.messier.substring(1)) - parseInt(b.messier.substring(1))
+          );
+        });
+        setObjectsData(messierOrdered);
+        setObjects(messierOrdered);
         setisLoading(false);
       })
       .catch((error) => {
@@ -24,7 +28,7 @@ function ObjectList() {
 
   return (
     <div className="my-container">
-      {isLoading && <div>Content Laoding...</div>}
+      {isLoading && <div>Telescope is focusing...</div>}
 
       {!isLoading &&
         objects.map((eachObject) => {

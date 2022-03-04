@@ -9,7 +9,7 @@ function ObjectCard(props) {
       <h5 className="card-title">{`${props.object.messier} ${props.object.commonName}`}</h5>
       <p className="card-text">{props.object.object}</p>
       <a
-        href={`/object/${props.object._id}`}
+        href={`/objects/${props.object._id}`}
         className="object-card-btn dark-blue"
       >
         See Details

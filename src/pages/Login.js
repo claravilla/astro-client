@@ -20,6 +20,7 @@ function Login() {
       .post(url, { email: email, password: password })
       .then((response) => {
         const authToken = response.data.authToken;
+        console.log("this is context and it works");
         setToken(authToken);
         navigate("/");
 

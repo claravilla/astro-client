@@ -2,6 +2,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CommentCard from "../components/CommentCard";
+import Footer from "../components/Footer";
 
 function SingleObject() {
   const { id } = useParams();
@@ -98,6 +99,7 @@ function SingleObject() {
           </div>
         </div>
       )}
+      <Footer/>
     </div>
   );
 }

@@ -2,6 +2,7 @@ import { useState, useContext } from "react";
 import axios from "axios";
 import {AuthContext} from "../context/AuthContext";
 import {useNavigate} from "react-router-dom";
+import Footer from "../components/Footer"
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -57,6 +58,7 @@ function Login() {
         <button type="submit" className="btn dark-blue">Login</button>
       </form>
       {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
+      <Footer />
     </div>
   );
 }

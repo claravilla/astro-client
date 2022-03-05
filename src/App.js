@@ -9,6 +9,7 @@ import Login from "../src/pages/Login";
 import Profile from "../src/pages/Profile";
 import AddEvent from "../src/pages/AddEvent";
 import EditEvent from "../src/pages/EditEvent";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <Route path="/profile" element={<Profile />} />
         <Route path="/addEvent" element={<AddEvent />} />
         <Route path="/editEvent/:id" element={<EditEvent />} />
+        <Route path="/*" element={<ErrorPage/>} />
       </Routes>
     </div>
   );

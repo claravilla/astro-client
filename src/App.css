@@ -1,4 +1,13 @@
-.App {
+.footer {
+  margin-top: 200px;
+  background-color: #051367;
+  color: white;
+  padding: 20px;
+  font-size: 0.7rem;
+  line-height: 1rem;
+}
+
+.signature {
   text-align: center;
 }
 
@@ -213,4 +222,20 @@ label{
   width: 27%;
   border: none;
 }
+}
+
+
+/* ----ERROR PAGE STYLE---- */
+
+.error-page{
+  margin:100px;
+  display:flex;
+  flex-direction:column;
+
+}
+
+
+.error-page h2{
+  margin-bottom: 50px;
+  color: #051367 ;
 }

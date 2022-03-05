@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import Footer from "../components/Footer"
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -57,6 +58,7 @@ function Signup() {
         ></input>
         <button type="submit">Sign up</button>
       </form>
+      <Footer/>
     </div>
   );
 }

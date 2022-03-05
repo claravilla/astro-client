@@ -1,5 +1,6 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Footer from "../components/Footer";
 import ObjectCard from "../components/ObjectCard";
 
 function ObjectList() {
@@ -34,6 +35,7 @@ function ObjectList() {
         objects.map((eachObject) => {
           return <ObjectCard object={eachObject} key={eachObject._id} />;
         })}
+        <Footer/>
     </div>
   );
 }

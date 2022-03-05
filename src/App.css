@@ -1,3 +1,17 @@
+/* ----------- FURNITURE STYLES ----------- */
+
+.navbar {
+  background-color: #051367;
+  display:flex;
+  justify-content: space-around;
+  width:100%;
+}
+
+.navbar-right-btn {
+  display:flex;
+  justify-content: space-around;
+}
+
 .footer {
   margin-top: 200px;
   background-color: #051367;
@@ -5,10 +19,36 @@
   padding: 20px;
   font-size: 0.7rem;
   line-height: 1rem;
+  width:100%;
 }
 
 .signature {
   text-align: center;
+}
+
+.footer a {
+  text-decoration: none;
+}
+
+.btn-link-dark {
+  background-color: #051367;
+  margin: 20px;
+  border-radius: 25px;
+  color:white;
+  padding: 10px 20px;
+  border:none;
+  text-decoration: none;
+}
+
+
+.btn-link-light {
+  background-color: #afe2f7;
+  margin: 20px;
+  border-radius: 25px;
+  padding: 10px 20px;
+  border:none;
+  color:#051367;
+  text-decoration: none;
 }
 
 /* ----------- OBJECT LIST STYLE ----------- */
@@ -155,8 +195,6 @@ td {
 
 /* --------- SIGN UP/LOGIN FORM STYLE ------------ */
 
-
-
 label{
   margin: 20px;
 }
@@ -231,11 +269,16 @@ label{
   margin:100px;
   display:flex;
   flex-direction:column;
+  align-items: center;
 
 }
 
 
 .error-page h2{
-  margin-bottom: 50px;
+  margin-bottom: 20px;
   color: #051367 ;
+}
+
+.error-page img {
+  width: 50%;
 }

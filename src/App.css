@@ -20,14 +20,22 @@
   font-size: 0.7rem;
   line-height: 1rem;
   width:100%;
-}
-
-.signature {
   text-align: center;
 }
 
+.resources {
+  display: flex;
+  justify-content: space-evenly;
+  margin: 20px 0;
+}
+
+/* .signature {
+  text-align: center;
+} */
+
 .footer a {
   text-decoration: none;
+  color:#afe2f7
 }
 
 .btn-link-dark {
@@ -59,23 +67,43 @@
   margin: 20px auto;
   max-width: 1500px;
 }
-.my-card {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-  align-items: center;
-  border: 1px solid #051367;
-  background-color: #afe2f7;
-  margin: 50px;
-  border-radius: 0.5rem;
+
+
+@media (max-width: 430px) {
+  .my-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border: 1px solid #051367;
+    background-color: #afe2f7;
+    margin: 50px 5px;
+    border-radius: 0.5rem;
+  }
 }
+
+
+@media (min-width: 431px) {
+  .my-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    border: 1px solid #051367;
+    background-color: #afe2f7;
+    margin: 50px;
+    border-radius: 0.5rem;
+  }
+}
+
 
 .my-card h5 {
   font-size: 1.5rem;
-  width: 350px;
+  width: 325px;
   height: 50px;
-  padding: 0 20px;
+  padding: 0 15px;
   margin-top: 20px;
+  text-align: center;
 }
 
 .my-card p {
@@ -84,20 +112,21 @@
 }
 
 .my-card-img {
-  width: 350px;
-  height: 350px;
+  width: 250px;
+  height: 250px;
   border-radius: 100%;
   border: 5px solid #051367;
-  margin: 20px 20px 40px 20px;
+  margin: 15px 0;
 }
 
 .object-card-btn {
   padding: 20px 10px;
   color: white;
-  margin: 30px 0 0 0;
+  margin: 20px 0 0 0;
   text-decoration: none;
   width: 100%;
   border-radius: 0 0 0.5rem 0.5rem;
+  text-align: center;
 }
 
 .light-blue {
@@ -247,6 +276,7 @@ label{
   background-color: #739bf8;
   width:100%;
   border-radius:15px;
+  margin: 20px
 
 }
 
@@ -261,6 +291,33 @@ label{
   border: none;
 }
 }
+
+@media (max-width: 750px) {
+
+
+  .form {
+   display: flex;
+   flex-direction:column;
+   justify-content: flex-start;
+   align-items: flex-start;
+   background-color: #739bf8;
+   width:100%;
+   border-radius:15px;
+   margin: 20px 0
+ 
+ }
+ 
+ .form button {
+   margin: 20px;
+   align-self: flex-end;
+   background-color: #051367;
+   border-radius: 25px;
+   color:white;
+   padding: 5px 20px;
+   width: 27%;
+   border: none;
+ }
+ }
 
 
 /* ----ERROR PAGE STYLE---- */

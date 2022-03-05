@@ -1,11 +1,15 @@
 function Footer () {
     return (
         <div className="footer">
-        <h6>Credits:</h6>
-     <p>Picture of the day</p>
+        <h6>Resources</h6>
+        <div className="resources">
+        <p>Picture of the day</p>
      <p>Catalogue images</p>
      <p>Messier difficulty level</p>
      <p><a href="https://when1x1xinfinity.com/blogs/news/celebrating-seeing-black-holes-with-a-few-favourite-gifs">Error Page img</a></p>
+
+        </div>
+     
      <div className="signature">
      <p>Built by <a href="https://github.com/claravilla">Clara</a><br/>March 2022</p>
      

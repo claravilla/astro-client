@@ -16,7 +16,7 @@ function AuthContextWrapper(props) {
     const navigate = useNavigate();
 
     const setToken =(token)=>{
-        localStorage.setItem('authToken', token);
+        localStorage.setItem("authToken", token);
     }
 
 
@@ -49,10 +49,18 @@ function AuthContextWrapper(props) {
     useEffect(() => {                                    
         checkIsAuthenticated();    
        }, []);
-      
+     
+
+
+    const logoutUser = ()=>{
+        localStorage.removeItem("authToken");
+        checkIsAuthenticated();
+        navigate("/");
+
+    }
 
     return (
-        <AuthContext.Provider value={{isLoggedIn, isLoading, user, setToken, checkIsAuthenticated}}>
+        <AuthContext.Provider value={{isLoggedIn, isLoading, user, setToken, checkIsAuthenticated, logoutUser}}>
     {props.children}
         </AuthContext.Provider>
     )

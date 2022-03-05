@@ -32,26 +32,29 @@ function Login() {
   };
 
   return (
-    <div>
-      Login page
-      <form onSubmit={handleLogin}>
+    <div >
+    
+      <form  className="form" onSubmit={handleLogin}>
         <label htmlFor="email">Email Address</label>
         <input
+      
           type="email"
           value={email}
           name="email"
           onChange={(e) => setEmail(e.target.value)}
           required
+          
         ></input>
-        <label htmlFor="password">Password</label>
+        <label htmlFor="password" >Password</label>
         <input
+        
           type="password"
           value={password}
           name="password"
           onChange={(e) => setPassword(e.target.value)}
           required
         ></input>
-        <button type="submit">Login</button>
+        <button type="submit" className="btn dark-blue">Login</button>
       </form>
       {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
     </div>

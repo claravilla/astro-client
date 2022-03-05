@@ -142,3 +142,75 @@ td {
 .comment-title {
   font-style: italic;
 }
+
+
+/* --------- SIGN UP/LOGIN FORM STYLE ------------ */
+
+
+
+label{
+  margin: 20px;
+}
+
+.form input {
+  border-radius: 10px;
+  border: 2px solid #051367;
+  padding: 5px 10px;
+  margin: 0 20px;
+  width:80%
+  
+
+}
+
+@media (min-width: 950px) { 
+ .form {
+  display: flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin: 50px;
+  background-color: #739bf8;
+  width:50%;
+  border-radius:15px;
+
+}
+
+.form button {
+  margin: 20px;
+  align-self: flex-end;
+  background-color: #051367;
+  border-radius: 25px;
+  color:white;
+  padding: 10px 20px;
+  width: 17%;
+  border:none;
+}
+
+}
+
+
+@media (max-width: 949px) {
+
+
+ .form {
+  display: flex;
+  flex-direction:column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background-color: #739bf8;
+  width:100%;
+  border-radius:15px;
+
+}
+
+.form button {
+  margin: 20px;
+  align-self: flex-end;
+  background-color: #051367;
+  border-radius: 25px;
+  color:white;
+  padding: 5px 20px;
+  width: 27%;
+  border: none;
+}
+}

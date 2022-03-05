@@ -7,7 +7,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const {setToken} = useContext(AuthContext);
+  const {setToken, checkIsAuthenticated} = useContext(AuthContext);
   const navigate = useNavigate();
   
 
@@ -20,8 +20,8 @@ function Login() {
       .post(url, { email: email, password: password })
       .then((response) => {
         const authToken = response.data.authToken;
-        console.log("this is context and it works");
         setToken(authToken);
+        checkIsAuthenticated();
         navigate("/");
 
       })

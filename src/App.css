@@ -59,7 +59,46 @@
   text-decoration: none;
 }
 
+.placeholder-page{
+  margin:100px;
+  display:flex;
+  flex-direction:column;
+  align-items: center;
+
+}
+
+.placeholder-title {
+  margin-bottom: 20px;
+  color: #051367 ;
+}
+
+
+.placeholder-img {
+  width:50%;
+}
+
+/* ----------- HOME PAGE STYLE ----------- */
+
+.home-page-intro {
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  color:#051367;
+  text-align: center;
+  margin: 50px;
+}
+
+.btn-margin  {
+  margin: 50px;
+}
+
 /* ----------- OBJECT LIST STYLE ----------- */
+
+.header-obj-list {
+  margin-top: 50px;
+  text-align: center;
+  color: #051367;
+}
 
 .my-container {
   display: flex;
@@ -235,7 +274,15 @@ label{
   padding: 5px 10px;
   margin: 0 20px;
   width:80%
-  
+
+}
+
+.form select {
+  border-radius: 10px;
+  border: 2px solid #051367;
+  padding: 5px 10px;
+  margin: 0 20px;
+  width:80%
 
 }
 
@@ -321,22 +368,5 @@ label{
  }
 
 
-/* ----ERROR PAGE STYLE---- */
-
-.error-page{
-  margin:100px;
-  display:flex;
-  flex-direction:column;
-  align-items: center;
-
-}
 
 
-.error-page h2{
-  margin-bottom: 20px;
-  color: #051367 ;
-}
-
-.error-page img {
-  width: 50%;
-}

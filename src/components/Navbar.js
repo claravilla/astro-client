@@ -12,9 +12,9 @@ function Navbar(props) {
         <div className="navbar">
         <a href="/"><img src={logo} alt="logo"></img></a>
             <div className="navbar-right">
-            <ButtonLink class="btn-link-light" url={props.url1} text={props.text1}/>
-            {props.loggedIn==="true" && <button class="btn-link-light" type="submit" onClick={logoutUser}>Logout</button>}
-            {props.loggedIn==="false" && <ButtonLink class="btn-link-light" url={props.url2} text={props.text2}/>}
+            <ButtonLink classProp="btn-link-light" url={props.url1} text={props.text1}/>
+            {props.loggedIn==="true" && <button className="btn-link-light" type="submit" onClick={logoutUser}>Logout</button>}
+            {props.loggedIn==="false" && <ButtonLink classProp="btn-link-light" url={props.url2} text={props.text2}/>}
   
             </div>
         </div>

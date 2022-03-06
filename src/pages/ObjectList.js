@@ -3,7 +3,8 @@ import { useState, useEffect, useContext } from "react";
 import Footer from "../components/Footer";
 import ObjectCard from "../components/ObjectCard";
 import Navbar from "../components/Navbar";
-import {AuthContext} from "../context/AuthContext"
+import {AuthContext} from "../context/AuthContext";
+import telescope from "../images/telescope.gif";
 
 
 function ObjectList() {
@@ -38,10 +39,12 @@ function ObjectList() {
     {isLoggedIn && <Navbar loggedIn="true" url1="/profile" text1="My List" />}
 
     {!isLoggedIn && <Navbar loggedIn="false" url1="/signup" text1="Sign Up"  url2="/login" text2="Log in" />}
-   
+    <h1 className="header-obj-list">Messier Catalogue</h1>
     <div className="my-container">
-    <h1>Messier Catalogue</h1>
-      {isLoading && <div>Telescope is focusing...</div>}
+    
+      {isLoading && <div className="placeholder-page">
+      <h2 className="placeholder-title">Telescope is focusing...</h2>
+      <img className="placeholder-img"src={telescope} alt="telescope"></img></div>}
 
       {!isLoading &&
         

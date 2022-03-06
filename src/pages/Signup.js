@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Footer from "../components/Footer"
+import Navbar from "../components/Navbar";
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -31,6 +32,7 @@ function Signup() {
 
   return (
     <div>
+    <Navbar loggedIn="false" url1="/signup" text1="Sign Up"  url2="/login" text2="Log in" />
       <form className="form" onSubmit={signupUser}>
         <label htmlFor="username">Username</label>
         <input

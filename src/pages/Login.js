@@ -3,6 +3,7 @@ import axios from "axios";
 import {AuthContext} from "../context/AuthContext";
 import {useNavigate} from "react-router-dom";
 import Footer from "../components/Footer"
+import Navbar from "../components/Navbar";
 
 function Login() {
   const [email, setEmail] = useState("");
@@ -23,7 +24,7 @@ function Login() {
         const authToken = response.data.authToken;
         setToken(authToken);
         checkIsAuthenticated();
-        navigate("/");
+        navigate("/profile");
 
       })
       .catch((error) => {
@@ -34,7 +35,7 @@ function Login() {
 
   return (
     <div >
-    
+    <Navbar loggedIn="false" url1="/signup" text1="Sign Up"  url2="/login" text2="Log in" />
       <form  className="form" onSubmit={handleLogin}>
         <label htmlFor="email">Email Address</label>
         <input

@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Footer from "../components/Footer"
+import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 
 function Signup() {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
 
   const navigate = useNavigate();
 
@@ -27,12 +28,19 @@ function Signup() {
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage(error.response.data.error);
       });
   };
 
   return (
     <div>
-    <Navbar loggedIn="false" url1="/signup" text1="Sign Up"  url2="/login" text2="Log in" />
+      <Navbar
+        loggedIn="false"
+        url1="/signup"
+        text1="Sign Up"
+        url2="/login"
+        text2="Log in"
+      />
       <form className="form" onSubmit={signupUser}>
         <label htmlFor="username">Username</label>
         <input
@@ -60,7 +68,8 @@ function Signup() {
         ></input>
         <button type="submit">Sign up</button>
       </form>
-      <Footer/>
+      {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
+      <Footer />
     </div>
   );
 }

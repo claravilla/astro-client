@@ -1,8 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
+import {AuthContext} from "../context/AuthContext";
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -10,7 +11,10 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
+  const {setToken, checkIsAuthenticated} = useContext(AuthContext);
   const navigate = useNavigate();
+
+
 
   const url = "http://localhost:5005/api/auth/signup";
 
@@ -21,10 +25,14 @@ function Signup() {
       .post(url, newUser)
       .then((data) => {
         console.log(data);
+        const authToken = data.data.authToken
         setUsername("");
         setEmail("");
         setPassword("");
-        navigate("/");
+        setToken(authToken);
+        checkIsAuthenticated();
+
+        navigate("/profile");
       })
       .catch((error) => {
         console.log(error);

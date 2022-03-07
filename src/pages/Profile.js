@@ -16,14 +16,17 @@ function Profile() {
   const userId = user._id;
   console.log(userId);
 
-  const url = `http://localhost:5005/api/events/${userId}`;
+  const url = `http://localhost:5005/api/events`;
 
   useEffect(() => {
     axios
       .get(url)
       .then((data) => {
-        setEventsData(data.data);
-        setEvents(data.data);
+        const userEvents = data.data.filter((eachEvent) => {
+          return (eachEvent.userId = userId);
+        });
+        setEventsData(userEvents);
+        setEvents(userEvents);
         setIsLoading(false);
       })
       .catch((error) => {

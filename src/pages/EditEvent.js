@@ -3,12 +3,11 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import EventForm from "../components/EventForm";
+import EditEventForm from "../components/EditEventForm";
 import telescope from "../images/telescope.gif";
 
 function EditEvent(props) {
   const { id } = useParams();
-  console.log(id);
   const [errorMessage, setErrorMessage] = useState("");
   const [eventData, setEventData] = useState();
   const [isLoading, setIsLoading] = useState(true);
@@ -19,9 +18,6 @@ function EditEvent(props) {
       .get(url)
       .then((data) => {
         console.log(data);
-        data.data.commonName = data.data.name;
-        data.data.messier = "";
-        delete data.data.name;
         setEventData(data.data);
         setIsLoading(false);
       })
@@ -45,7 +41,7 @@ function EditEvent(props) {
         </div>
       )}
 
-      {!isLoading && <EventForm eventData={eventData} url={url} method="put" />}
+      {!isLoading && <EditEventForm eventData={eventData} />}
       <Footer />
       {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
     </div>

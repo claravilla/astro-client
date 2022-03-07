@@ -1,47 +1,20 @@
 import axios from "axios";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
 import ButtonLink from "../components/ButtonLink";
 
-function EventForm(props) {
-  let myEventData = {};
-  //if event is coming from the catalogue, a props with object data is passed.
-  //if event is coming from my profile, the props obj is empty
-
-  if (props.eventData === undefined) {
-    myEventData = {}; //creating an empty object so it can be referenced without errors
-    //setting its property to empty string so the form doesn't display undefined
-    myEventData.commonName = "";
-    myEventData.messier = "";
-    myEventData.object = "";
-    myEventData.season = "";
-    myEventData.difficulty = "";
-    myEventData._id = "";
-  } else {
-    myEventData = Object.assign({}, props.eventData); //assigning to my object so it can be referenced in the form
-  }
-
-  console.log(myEventData);
-
-  //set value of form input from the object catalogue or existing event(if any)
-  const [name, setName] = useState(
-    `${myEventData.commonName} ${myEventData.messier}`
-  );
-  const [objectType, setObjectType] = useState(myEventData.object);
-  const [img, setImg] = useState(myEventData.image);
-  const [season, setSeason] = useState(myEventData.season);
-  const [difficulty, setDifficulty] = useState(myEventData.difficulty);
-  const [seen, setSeen] = useState("");
-
-  //set value of form input specific to the event to blank
-
-  const [time, setTime] = useState("");
-  const [place, setPlace] = useState("");
-  const [observations, setObservations] = useState("");
+function EditEventForm(props) {
+  const [name, setName] = useState(props.eventData.name);
+  const [objectType, setObjectType] = useState(props.eventData.object);
+  const [img, setImg] = useState(props.eventData.image);
+  const [season, setSeason] = useState(props.eventData.season);
+  const [difficulty, setDifficulty] = useState(props.eventData.difficulty);
+  const [seen, setSeen] = useState(props.eventData.seen);
+  const [time, setTime] = useState(props.eventData.time);
+  const [place, setPlace] = useState(props.eventData.place);
+  const [observations, setObservations] = useState(props.observations);
 
   const [errorMessage, setErrorMessage] = useState("");
-  const { user } = useContext(AuthContext);
 
   const navigate = useNavigate();
 
@@ -54,20 +27,19 @@ function EventForm(props) {
     season: season,
     difficulty: difficulty,
     seen: seen,
-    score: myEventData.score,
-    ojectCatalogueId: myEventData._id,
-    userId: user._id,
+    score: props.eventData.score,
+    ojectCatalogueId: props.eventData.ojectCatalogueId,
+    userId: props.eventData.userId,
   };
 
-  const addEvent = (e) => {
+  const editEvent = (e) => {
     e.preventDefault();
     console.log(event);
-    const url = `http://localhost:5005/api/events/`;
-
+    const url = `http://localhost:5005/api/events/${props.eventData._id}`;
     axios
-      .post(url, event)
+      .put(url, event)
       .then((response) => {
-        console.log("event added: " + response.data);
+        console.log("event updated: " + response.data);
         setName("");
         setObjectType("");
         setTime("");
@@ -85,11 +57,9 @@ function EventForm(props) {
       });
   };
 
-  //set messier from the catalogue
-  //fill name with messier and commonName
   return (
     <div>
-      <form className="form" onSubmit={addEvent}>
+      <form className="form" onSubmit={editEvent}>
         {/* <img src={img} alt={name}></img> */}
         <label>Name</label>
         <input
@@ -165,11 +135,7 @@ function EventForm(props) {
           <option value="false">Not Seen</option>
         </select>
         <div className="form-buttons-section">
-          <ButtonLink
-            classProp="btn-link-dark"
-            url={props.cancelUrl}
-            text="Cancel"
-          />
+          <ButtonLink classProp="btn-link-dark" url="/profile" text="Cancel" />
           <button className="form-submit-btn" type="submit">
             Add Event
           </button>
@@ -180,4 +146,4 @@ function EventForm(props) {
   );
 }
 
-export default EventForm;
+export default EditEventForm;

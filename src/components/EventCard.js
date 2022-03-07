@@ -1,6 +1,24 @@
+import axios from "axios";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+
 function EventCard(props) {
+  const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState("");
+
   const deleteEvent = () => {
     console.log(props.event._id);
+    const url = `http://localhost:5005/api/events/${props.event._id}`;
+
+    axios
+      .delete(url)
+      .then(() => {
+        navigate("/profile");
+      })
+      .catch((error) => {
+        console.log(error);
+        setErrorMessage(error.response.data.error);
+      });
   };
 
   return (
@@ -101,6 +119,7 @@ function EventCard(props) {
           </button>
         </form>
       </div>
+      {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
     </div>
   );
 }

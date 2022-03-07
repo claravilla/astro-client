@@ -25,7 +25,6 @@ function Profile() {
         },
       })
       .then((data) => {
-        console.log(data.data);
         setEventsData(data.data);
         setEvents(data.data);
       })

@@ -28,7 +28,13 @@ function AddEventFromCatalogue() {
 
   return (
     <div>
-      <Navbar loggedIn="true" url1="/objects" text1="Catalogue" />
+      <Navbar
+        loggedIn="true"
+        url1="/profile"
+        text1="My List"
+        url3="/objects"
+        text3="Catalogue"
+      />
       {isLoading && (
         <div className="placeholder-page">
           <h2 className="placeholder-title">Telescope is focusing...</h2>
@@ -42,7 +48,10 @@ function AddEventFromCatalogue() {
 
       {!isLoading && (
         <div>
-          <EventForm eventData={objectData} />
+          <EventForm
+            eventData={objectData}
+            cancelUrl={`/objects/${objectData._id}`}
+          />
           <Footer />
         </div>
       )}

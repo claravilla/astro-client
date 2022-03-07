@@ -238,7 +238,7 @@
   width: 100%;
 }
 
-table {
+.obj-table {
   border: 3px solid #051367;
   font-size: 1.2rem;
   text-align: left;
@@ -249,7 +249,7 @@ td {
   padding: 20px;
 }
 
-.table-header {
+.obj-table-header {
   font-style: italic;
   font-weight: bold;
 }
@@ -318,7 +318,6 @@ label {
     border-radius: 25px;
     color: white;
     padding: 10px 20px;
-    /* width: 17%; */
     border: none;
   }
 }
@@ -341,7 +340,7 @@ label {
     border-radius: 25px;
     color: white;
     padding: 5px 20px;
-    /* width: 27%; */
+
     border: none;
   }
 }
@@ -365,7 +364,53 @@ label {
     border-radius: 25px;
     color: white;
     padding: 5px 20px;
-    /* width: 27%; */
+
     border: none;
   }
+}
+
+/* -------PROFILE STYLE -------- */
+
+.my-profile {
+  margin: 50px;
+}
+
+.my-profile h1 {
+  text-align: center;
+}
+
+.my-event {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin: 20px auto;
+}
+.event-card {
+  width: 345px;
+  padding: 20px 10px;
+}
+
+.event-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #051367;
+}
+
+.title-a-tag {
+  text-decoration: none;
+  width: 100%;
+}
+
+.event-card a {
+  text-decoration: none;
+}
+
+.event-card button {
+  border: none;
+  background-color: transparent;
+}
+
+.svg-btn {
+  margin: 20px 10px 10px 10px;
 }

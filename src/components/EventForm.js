@@ -177,7 +177,11 @@ function EventForm(props) {
           <option value="false">Not Seen</option>
         </select>
         <div className="form-buttons-section">
-          <ButtonLink classProp="btn-link-dark" url="/profile" text="Cancel" />
+          <ButtonLink
+            classProp="btn-link-dark"
+            url={props.cancelUrl}
+            text="Cancel"
+          />
           <button className="form-submit-btn" type="submit">
             Add Event
           </button>

@@ -31,7 +31,15 @@ function SingleObject() {
 
   return (
     <div>
-      {isLoggedIn && <Navbar loggedIn="true" url1="/profile" text1="My List" />}
+      {isLoggedIn && (
+        <Navbar
+          loggedIn="true"
+          url1="/profile"
+          text1="My List"
+          url3="/object"
+          text3="Catalogue"
+        />
+      )}
       {!isLoggedIn && (
         <Navbar
           loggedIn="false"
@@ -71,19 +79,19 @@ function SingleObject() {
             <table>
               <tbody>
                 <tr>
-                  <td className="table-header">NGC reference</td>
+                  <td className="obj-table-header">NGC reference</td>
                   <td>{spaceObject.ngc}</td>
                 </tr>
                 <tr>
-                  <td className="table-header">Visible in</td>
+                  <td className="obj-table-header">Visible in</td>
                   <td>{spaceObject.season}</td>
                 </tr>
                 <tr>
-                  <td className="table-header">Closest Constellation</td>
+                  <td className="obj-table-header">Closest Constellation</td>
                   <td>{`${spaceObject.latinName} - ${spaceObject.englishName}`}</td>
                 </tr>
                 <tr>
-                  <td className="table-header">Coordinates</td>
+                  <td className="obj-table-header">Coordinates</td>
                   <td>
                     Right Ascension: {spaceObject.ra}
                     <br />
@@ -91,15 +99,15 @@ function SingleObject() {
                   </td>
                 </tr>
                 <tr>
-                  <td className="table-header">Distance in Light Years</td>
+                  <td className="obj-table-header">Distance in Light Years</td>
                   <td>{spaceObject.distance}</td>
                 </tr>
                 <tr>
-                  <td className="table-header">Magnitude</td>
+                  <td className="obj-table-header">Magnitude</td>
                   <td>{spaceObject.mag}</td>
                 </tr>
                 <tr>
-                  <td className="table-header">Difficulty</td>
+                  <td className="obj-table-header">Difficulty</td>
                   <td>{spaceObject.difficulty}</td>
                 </tr>
               </tbody>

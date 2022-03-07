@@ -13,7 +13,11 @@ function AddEvent() {
         text3="Catalogue"
       />
       <div>
-        <EventForm cancelUrl="/profile" />
+        <EventForm
+          cancelUrl="/profile"
+          url="http://localhost:5005/api/events"
+          method="post"
+        />
         <Footer />
       </div>
     </div>

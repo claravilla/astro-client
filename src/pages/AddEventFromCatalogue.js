@@ -51,6 +51,8 @@ function AddEventFromCatalogue() {
           <EventForm
             eventData={objectData}
             cancelUrl={`/objects/${objectData._id}`}
+            url="http://localhost:5005/api/events"
+            method="post"
           />
           <Footer />
         </div>

@@ -31,11 +31,15 @@ function EventForm(props) {
     myEventData.object = "";
     myEventData.season = "";
     myEventData.difficulty = "";
+    myEventData.seen = "";
+    myEventData.time = "";
+    myEventData.place = "";
+    myEventData.observations = "";
   } else {
     myEventData = Object.assign({}, props.eventData); //assigning to my object so it can be referenced in the form
   }
 
-  //set value of form input from the object catalogue (if any)
+  //set value of form input from the object catalogue or existing event(if any)
   const [name, setName] = useState(
     `${myEventData.commonName} ${myEventData.messier}`
   );
@@ -43,18 +47,19 @@ function EventForm(props) {
   const [img, setImg] = useState(myEventData.image);
   const [season, setSeason] = useState(myEventData.season);
   const [difficulty, setDifficulty] = useState(myEventData.difficulty);
+  const [seen, setSeen] = useState(myEventData.seen);
 
   //set value of form input specific to the event to blank
 
-  const [time, setTime] = useState("");
-  const [place, setPlace] = useState("");
-  const [observations, setObservations] = useState("");
-  const [seen, setSeen] = useState("");
+  const [time, setTime] = useState(myEventData.time);
+  const [place, setPlace] = useState(myEventData.place);
+  const [observations, setObservations] = useState(myEventData.observation);
 
   const [errorMessage, setErrorMessage] = useState("");
   const { user } = useContext(AuthContext);
 
-  const url = "http://localhost:5005/api/events";
+  // const url = props.url;
+  // const method = props.method;
 
   const navigate = useNavigate();
 
@@ -75,9 +80,12 @@ function EventForm(props) {
   const addEvent = (e) => {
     e.preventDefault();
     console.log(event);
-    console.log(url);
-    axios
-      .post(url, event)
+
+    axios({
+      method: props.method,
+      url: props.url,
+      data: event,
+    })
       .then((response) => {
         console.log("event added: " + response.data);
         setName("");
@@ -148,7 +156,7 @@ function EventForm(props) {
         </select>
         <label>When</label>
         <input
-          type="date"
+          type="text"
           value={time}
           onChange={(e) => {
             setTime(e.target.value);

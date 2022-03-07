@@ -11,6 +11,7 @@ function Profile() {
   const { user } = useContext(AuthContext);
   const [eventsData, setEventsData] = useState([]);
   const [events, setEvents] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const userId = user._id;
   console.log(userId);
@@ -27,6 +28,7 @@ function Profile() {
       .then((data) => {
         setEventsData(data.data);
         setEvents(data.data);
+        setIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -44,7 +46,7 @@ function Profile() {
           text="Add New Event"
         />
         <h2>Your Watching List</h2>
-        {events.length === 0 && (
+        {isLoading && (
           <div className="placeholder-page">
             <h2 className="placeholder-title">Telescope is focusing...</h2>
             <img
@@ -55,7 +57,7 @@ function Profile() {
           </div>
         )}
 
-        {events.length !== 0 && (
+        {!isLoading && (
           <div className="my-event">
             {events.map((eachEvent) => {
               return <EventCard event={eachEvent} key={eachEvent._id} />;

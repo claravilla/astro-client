@@ -16,15 +16,11 @@ function Profile() {
   const userId = user._id;
   console.log(userId);
 
-  const url = "http://localhost:5005/api/events";
+  const url = `http://localhost:5005/api/events/${userId}`;
 
   useEffect(() => {
     axios
-      .get(url, {
-        params: {
-          userId: userId,
-        },
-      })
+      .get(url)
       .then((data) => {
         setEventsData(data.data);
         setEvents(data.data);

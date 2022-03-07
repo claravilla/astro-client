@@ -2,13 +2,13 @@
 
 .navbar {
   background-color: #051367;
-  display:flex;
+  display: flex;
   justify-content: space-around;
-  width:100%;
+  width: 100%;
 }
 
 .navbar-right-btn {
-  display:flex;
+  display: flex;
   justify-content: space-around;
 }
 
@@ -19,7 +19,7 @@
   padding: 20px;
   font-size: 0.7rem;
   line-height: 1rem;
-  width:100%;
+  width: 100%;
   text-align: center;
 }
 
@@ -35,60 +35,57 @@
 
 .footer a {
   text-decoration: none;
-  color:#afe2f7
+  color: #afe2f7;
 }
 
 .btn-link-dark {
   background-color: #051367;
   margin: 20px;
   border-radius: 25px;
-  color:white;
+  color: white;
   padding: 10px 20px;
-  border:none;
+  border: none;
   text-decoration: none;
 }
-
 
 .btn-link-light {
   background-color: #afe2f7;
   margin: 20px;
   border-radius: 25px;
   padding: 10px 20px;
-  border:none;
-  color:#051367;
+  border: none;
+  color: #051367;
   text-decoration: none;
 }
 
-.placeholder-page{
-  margin:100px;
-  display:flex;
-  flex-direction:column;
+.placeholder-page {
+  margin: 100px;
+  display: flex;
+  flex-direction: column;
   align-items: center;
-
 }
 
 .placeholder-title {
   margin-bottom: 20px;
-  color: #051367 ;
+  color: #051367;
 }
 
-
 .placeholder-img {
-  width:50%;
+  width: 50%;
 }
 
 /* ----------- HOME PAGE STYLE ----------- */
 
 .home-page-intro {
-  display:flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  color:#051367;
+  color: #051367;
   text-align: center;
   margin: 50px;
 }
 
-.btn-margin  {
+.btn-margin {
   margin: 50px;
 }
 
@@ -105,9 +102,7 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
   margin: 20px auto;
-  
 }
-
 
 @media (max-width: 430px) {
   .my-card {
@@ -122,7 +117,6 @@
   }
 }
 
-
 @media (min-width: 431px) {
   .my-card {
     display: flex;
@@ -135,7 +129,6 @@
     border-radius: 0.5rem;
   }
 }
-
 
 .my-card h5 {
   font-size: 1.5rem;
@@ -183,7 +176,7 @@
 
 /* ----------- SINGLE OBJECT STYLE ----------- */
 
-@media (max-width: 850px) {
+@media (max-width: 1160px) {
   .obj-header {
     display: flex;
     flex-direction: column;
@@ -196,23 +189,41 @@
     flex-direction: column;
     justify-content: flex-start;
     align-items: center;
-    margin: 10px;
+    margin: 50px 10px;
     border: 5px solid #051367;
+  }
+
+  .add-event-btn {
+    margin: 50px 5px 0px 70px;
+    align-self: flex-start;
   }
 }
 
-.obj-header {
-  display: flex;
-  justify-content: center;
+@media (min-width: 1161px) {
+  .obj-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .single-obj-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 50px;
+    border: 5px solid #051367;
+    width: 70%;
+  }
+
+  .add-event-btn {
+    margin: 50px 5px 0px 70px;
+    align-self: flex-start;
+  }
 }
 
-.single-obj-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin: 10px;
-  border: 5px solid #051367;
+.obj-header img {
+  margin: 20px;
 }
 
 .obj-info {
@@ -261,10 +272,9 @@ td {
   font-style: italic;
 }
 
-
 /* --------- SIGN UP/LOGIN FORM STYLE ------------ */
 
-label{
+label {
   margin: 20px;
 }
 
@@ -273,8 +283,7 @@ label{
   border: 2px solid #051367;
   padding: 5px 10px;
   margin: 0 20px;
-  width:80%
-
+  width: 80%;
 }
 
 .form select {
@@ -282,91 +291,83 @@ label{
   border: 2px solid #051367;
   padding: 5px 10px;
   margin: 0 20px;
-  width:80%
-
+  width: 80%;
 }
 
-@media (min-width: 950px) { 
- .form {
-  display: flex;
-  flex-direction:column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  margin: 50px;
-  background-color: #739bf8;
-  width:50%;
-  border-radius:15px;
+@media (min-width: 950px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    margin: 50px;
+    background-color: #739bf8;
+    width: 50%;
+    border-radius: 15px;
+  }
 
+  .form button {
+    margin: 20px;
+    align-self: flex-end;
+    background-color: #051367;
+    border-radius: 25px;
+    color: white;
+    padding: 10px 20px;
+    width: 17%;
+    border: none;
+  }
 }
-
-.form button {
-  margin: 20px;
-  align-self: flex-end;
-  background-color: #051367;
-  border-radius: 25px;
-  color:white;
-  padding: 10px 20px;
-  width: 17%;
-  border:none;
-}
-
-}
-
 
 @media (max-width: 949px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #739bf8;
+    width: 100%;
+    border-radius: 15px;
+    margin: 20px;
+  }
 
-
- .form {
-  display: flex;
-  flex-direction:column;
-  justify-content: flex-start;
-  align-items: flex-start;
-  background-color: #739bf8;
-  width:100%;
-  border-radius:15px;
-  margin: 20px
-
-}
-
-.form button {
-  margin: 20px;
-  align-self: flex-end;
-  background-color: #051367;
-  border-radius: 25px;
-  color:white;
-  padding: 5px 20px;
-  width: 27%;
-  border: none;
-}
+  .form button {
+    margin: 20px;
+    align-self: flex-end;
+    background-color: #051367;
+    border-radius: 25px;
+    color: white;
+    padding: 5px 20px;
+    /* width: 27%; */
+    border: none;
+  }
 }
 
 @media (max-width: 750px) {
-
-
   .form {
-   display: flex;
-   flex-direction:column;
-   justify-content: flex-start;
-   align-items: flex-start;
-   background-color: #739bf8;
-   width:100%;
-   border-radius:15px;
-   margin: 20px 0
- 
- }
- 
- .form button {
-   margin: 20px;
-   align-self: flex-end;
-   background-color: #051367;
-   border-radius: 25px;
-   color:white;
-   padding: 5px 20px;
-   width: 27%;
-   border: none;
- }
- }
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    background-color: #739bf8;
+    width: 100%;
+    border-radius: 15px;
+    margin: 20px 0;
+  }
 
+  .form button {
+    margin: 20px;
+    /* align-self: flex-end; */
+    background-color: #051367;
+    border-radius: 25px;
+    color: white;
+    padding: 5px 20px;
+    /* width: 27%; */
+    border: none;
+  }
 
-
-
+  .form-buttons {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+  }
+}

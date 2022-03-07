@@ -1,17 +1,18 @@
 import axios from "axios";
 import { useParams } from "react-router-dom";
-import { useState, useEffect,useContext } from "react";
+import { useState, useEffect, useContext } from "react";
 import CommentCard from "../components/CommentCard";
+import ButtonLink from "../components/ButtonLink";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import {AuthContext} from "../context/AuthContext"
+import { AuthContext } from "../context/AuthContext";
 
 function SingleObject() {
   const { id } = useParams();
   const [spaceObject, setSpaceObject] = useState({});
   const [comments, setComments] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const {isLoggedIn} = useContext(AuthContext);
+  const { isLoggedIn } = useContext(AuthContext);
 
   const url = `http://localhost:5005/api/astro-objects/${id}`;
 
@@ -31,7 +32,15 @@ function SingleObject() {
   return (
     <div>
       {isLoggedIn && <Navbar loggedIn="true" url1="/profile" text1="My List" />}
-{!isLoggedIn && <Navbar loggedIn="false" url1="/signup" text1="Sign Up"  url2="/login" text2="Log in" />}  
+      {!isLoggedIn && (
+        <Navbar
+          loggedIn="false"
+          url1="/signup"
+          text1="Sign Up"
+          url2="/login"
+          text2="Log in"
+        />
+      )}
 
       {isLoading && <p>Adjusting telescope lenses..</p>}
       {!isLoading && (
@@ -48,6 +57,15 @@ function SingleObject() {
               <h2>{spaceObject.object}</h2>
               <h3>{`Discovered by: ${spaceObject.discoveredBy}`}</h3>
             </div>
+            {isLoggedIn && (
+              <div className="add-event-btn">
+                <ButtonLink
+                  classProp="btn-link-dark"
+                  url={`/addEvent/${spaceObject._id}`}
+                  text="Add Event"
+                ></ButtonLink>
+              </div>
+            )}
           </div>
           <div className="obj-table">
             <table>
@@ -105,7 +123,7 @@ function SingleObject() {
           </div>
         </div>
       )}
-      <Footer/>
+      <Footer />
     </div>
   );
 }

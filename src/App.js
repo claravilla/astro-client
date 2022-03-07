@@ -10,6 +10,7 @@ import Profile from "../src/pages/Profile";
 import AddEvent from "../src/pages/AddEvent";
 import EditEvent from "../src/pages/EditEvent";
 import ErrorPage from "./pages/ErrorPage";
+import AddEventFromCatalogue from "./pages/AddEventFromCatalogue";
 
 function App() {
   return (
@@ -22,8 +23,9 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/addEvent" element={<AddEvent />} />
+        <Route path="/addEvent/:id" element={<AddEventFromCatalogue />} />
         <Route path="/editEvent/:id" element={<EditEvent />} />
-        <Route path="/*" element={<ErrorPage/>} />
+        <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </div>
   );

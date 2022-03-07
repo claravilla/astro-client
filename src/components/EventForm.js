@@ -2,6 +2,7 @@ import axios from "axios";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+import ButtonLink from "../components/ButtonLink";
 
 /*props should receive the value of the fields and the onSubmit function (add or edit)
 
@@ -18,19 +19,37 @@ and in form onSumit={submitForm({props.submitUrl})}
 */
 
 function EventForm(props) {
-  const [name, setName] = useState("");
-  const [messier, setMessier] = useState(""); //might not need this as state var
+  let myEventData = {};
+  //if event is coming from the catalogue, a props with object data is passed.
+  //if event is coming from my profile, the props obj is empty
+
+  if (props.eventData === undefined) {
+    myEventData = {}; //creating an empty object so it can be referenced without errors
+    //setting its property to empty string so the form doesn't display undefined
+    myEventData.commonName = "";
+    myEventData.messier = "";
+    myEventData.season = "";
+    myEventData.difficulty = "";
+  } else {
+    myEventData = Object.assign({}, props.eventData); //assigning to my object so it can be referenced in the form
+  }
+
+  //set value of form input from the object catalogue (if any)
+  const [name, setName] = useState(
+    `${myEventData.commonName} ${myEventData.messier}`
+  );
+  const [img, setImg] = useState(myEventData.image);
+  const [season, setSeason] = useState(myEventData.season);
+  const [difficulty, setDifficulty] = useState(myEventData.difficulty);
+
+  //set value of form input specific to the event to blank
+
   const [time, setTime] = useState("");
   const [place, setPlace] = useState("");
   const [observations, setObservations] = useState("");
-  const [img, setImg] = useState("");
-  const [season, setSeason] = useState("");
-  const [score, setScore] = useState(0); //might not need this as state var
-  const [difficulty, setDifficulty] = useState("");
-  const [ojectCatalogueId, setObjectCatalogueId] = useState(""); //might not need this as state var
   const [seen, setSeen] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
+  const [errorMessage, setErrorMessage] = useState("");
   const { user } = useContext(AuthContext);
 
   const url = "http://localhost:5005/api/events";
@@ -39,14 +58,14 @@ function EventForm(props) {
 
   const event = {
     name: name,
-    when: time,
-    where: place,
+    time: time,
+    place: place,
     observations: observations,
     season: season,
     difficulty: difficulty,
     seen: seen,
-    score: score, //to be update from the axios call
-    ojectCatalogueId: ojectCatalogueId, //to be update from the axios call
+    score: myEventData.score,
+    ojectCatalogueId: myEventData._id,
     userId: user._id,
   };
 
@@ -59,14 +78,11 @@ function EventForm(props) {
       .then((response) => {
         console.log("event added: " + response.data);
         setName("");
-        setMessier("");
         setTime("");
         setPlace("");
         setObservations("");
         setSeason("");
-        setScore(0);
         setDifficulty("");
-        setObjectCatalogueId("");
         setSeen("");
 
         navigate("/profile");
@@ -95,6 +111,7 @@ function EventForm(props) {
         <label>Season</label>
         <select
           name="season"
+          value={season}
           onChange={(e) => {
             setSeason(e.target.value);
           }}
@@ -147,8 +164,12 @@ function EventForm(props) {
           <option value="true">Seen</option>
           <option value="false">Not Seen</option>
         </select>
-        <button type="submit">Add Event</button>
+        <div className="form-buttons">
+          <ButtonLink classProp="btn-link-dark" url="/profile" text="Cancel" />
+          <button type="submit">Add Event</button>
+        </div>
       </form>
+      {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
     </div>
   );
 }

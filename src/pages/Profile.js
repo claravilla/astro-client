@@ -39,12 +39,16 @@ function Profile() {
       <Navbar loggedIn="true" url1="/objects" text1="Catalogue" />
       <div className="my-profile">
         <h1>Welcome back {user.username}</h1>
-        <ButtonLink
-          classProp="btn-link-dark"
-          url="/addEvent"
-          text="Add New Event"
-        />
+        <div className="profile-blurb">
+          <h3>Create your watching list</h3>
+          <ButtonLink
+            classProp="btn-link-dark"
+            url="/addEvent"
+            text="Add New Event"
+          />
+        </div>
         <h2>Your Watching List</h2>
+
         {isLoading && (
           <div className="placeholder-page">
             <h2 className="placeholder-title">Telescope is focusing...</h2>

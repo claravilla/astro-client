@@ -53,13 +53,10 @@ function EventForm(props) {
 
   const [time, setTime] = useState(myEventData.time);
   const [place, setPlace] = useState(myEventData.place);
-  const [observations, setObservations] = useState(myEventData.observation);
+  const [observations, setObservations] = useState(myEventData.observations);
 
   const [errorMessage, setErrorMessage] = useState("");
   const { user } = useContext(AuthContext);
-
-  // const url = props.url;
-  // const method = props.method;
 
   const navigate = useNavigate();
 

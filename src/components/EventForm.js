@@ -28,6 +28,7 @@ function EventForm(props) {
     //setting its property to empty string so the form doesn't display undefined
     myEventData.commonName = "";
     myEventData.messier = "";
+    myEventData.object = "";
     myEventData.season = "";
     myEventData.difficulty = "";
   } else {
@@ -38,6 +39,7 @@ function EventForm(props) {
   const [name, setName] = useState(
     `${myEventData.commonName} ${myEventData.messier}`
   );
+  const [objectType, setObjectType] = useState(myEventData.object);
   const [img, setImg] = useState(myEventData.image);
   const [season, setSeason] = useState(myEventData.season);
   const [difficulty, setDifficulty] = useState(myEventData.difficulty);
@@ -58,6 +60,7 @@ function EventForm(props) {
 
   const event = {
     name: name,
+    object: objectType,
     time: time,
     place: place,
     observations: observations,
@@ -78,6 +81,7 @@ function EventForm(props) {
       .then((response) => {
         console.log("event added: " + response.data);
         setName("");
+        setObjectType("");
         setTime("");
         setPlace("");
         setObservations("");
@@ -106,6 +110,14 @@ function EventForm(props) {
           required
           onChange={(e) => {
             setName(e.target.value);
+          }}
+        ></input>
+        <label>Type</label>
+        <input
+          type="text"
+          value={objectType}
+          onChange={(e) => {
+            setObjectType(e.target.value);
           }}
         ></input>
         <label>Season</label>
@@ -164,9 +176,11 @@ function EventForm(props) {
           <option value="true">Seen</option>
           <option value="false">Not Seen</option>
         </select>
-        <div className="form-buttons">
+        <div className="form-buttons-section">
           <ButtonLink classProp="btn-link-dark" url="/profile" text="Cancel" />
-          <button type="submit">Add Event</button>
+          <button className="form-submit-btn" type="submit">
+            Add Event
+          </button>
         </div>
       </form>
       {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}

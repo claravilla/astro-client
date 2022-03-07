@@ -272,7 +272,7 @@ td {
   font-style: italic;
 }
 
-/* --------- SIGN UP/LOGIN FORM STYLE ------------ */
+/* --------- FORM STYLE ------------ */
 
 label {
   margin: 20px;
@@ -294,7 +294,13 @@ label {
   width: 80%;
 }
 
-@media (min-width: 950px) {
+.form-buttons-section {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media (min-width: 1101px) {
   .form {
     display: flex;
     flex-direction: column;
@@ -306,19 +312,18 @@ label {
     border-radius: 15px;
   }
 
-  .form button {
+  .form-submit-btn {
     margin: 20px;
-    align-self: flex-end;
     background-color: #051367;
     border-radius: 25px;
     color: white;
     padding: 10px 20px;
-    width: 17%;
+    /* width: 17%; */
     border: none;
   }
 }
 
-@media (max-width: 949px) {
+@media (max-width: 1100px) {
   .form {
     display: flex;
     flex-direction: column;
@@ -330,9 +335,8 @@ label {
     margin: 20px;
   }
 
-  .form button {
+  .form-submit-btn {
     margin: 20px;
-    align-self: flex-end;
     background-color: #051367;
     border-radius: 25px;
     color: white;
@@ -354,7 +358,7 @@ label {
     margin: 20px 0;
   }
 
-  .form button {
+  .form-submit-btn {
     margin: 20px;
     /* align-self: flex-end; */
     background-color: #051367;
@@ -363,11 +367,5 @@ label {
     padding: 5px 20px;
     /* width: 27%; */
     border: none;
-  }
-
-  .form-buttons {
-    display: flex;
-    justify-content: space-around;
-    width: 100%;
   }
 }

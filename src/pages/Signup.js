@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-import {AuthContext} from "../context/AuthContext";
+import ButtonLink from "../components/ButtonLink";
+import { AuthContext } from "../context/AuthContext";
 
 function Signup() {
   const [username, setUsername] = useState("");
@@ -11,10 +12,8 @@ function Signup() {
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
 
-  const {setToken, checkIsAuthenticated} = useContext(AuthContext);
+  const { setToken, checkIsAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
-
-
 
   const url = "http://localhost:5005/api/auth/signup";
 
@@ -25,7 +24,7 @@ function Signup() {
       .post(url, newUser)
       .then((data) => {
         console.log(data);
-        const authToken = data.data.authToken
+        const authToken = data.data.authToken;
         setUsername("");
         setEmail("");
         setPassword("");
@@ -74,7 +73,12 @@ function Signup() {
           onChange={(e) => setPassword(e.target.value)}
           required
         ></input>
-        <button type="submit">Sign up</button>
+        <div className="form-buttons-section">
+          <ButtonLink classProp="btn-link-dark" url="/" text="Cancel" />
+          <button className="form-submit-btn" type="submit">
+            Sign up
+          </button>
+        </div>
       </form>
       {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
       <Footer />

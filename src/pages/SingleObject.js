@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import CommentCard from "../components/CommentCard";
 import ButtonLink from "../components/ButtonLink";
@@ -30,6 +30,33 @@ function SingleObject() {
         console.log(error);
       });
   }, []);
+
+  // -------------
+  const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
+
+  const submitComment = (comment) => {
+    //fetching token as this is a protected route
+    const token = localStorage.getItem("authToken");
+
+    const url = "http://localhost:5005/api/comments";
+
+    axios
+      .post(url, comment, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      })
+      .then(() => {
+        // navigate(`/objects/${props.objectCatalogueId}`);
+        // navigate("/objects");
+        setComments([...comments, comment]);
+      })
+      .catch((error) => {
+        console.log(error);
+        setErrorMessage(error);
+      });
+  };
 
   return (
     <div>
@@ -141,8 +168,14 @@ function SingleObject() {
                 <CommentCard comment={eachComment} key={eachComment._id} />
               );
             })}
-            {isLoggedIn && <CommentForm objectCatalogueId={id} />}
+            {isLoggedIn && (
+              <CommentForm
+                objectCatalogueId={id}
+                newCommentHandler={submitComment}
+              />
+            )}
           </div>
+          {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
         </div>
       )}
       <Footer />

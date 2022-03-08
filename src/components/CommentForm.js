@@ -7,7 +7,6 @@ function CommentForm(props) {
   const { user } = useContext(AuthContext);
   const [text, setText] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate();
 
   const createComment = (e) => {
     e.preventDefault();
@@ -23,25 +22,32 @@ function CommentForm(props) {
       text: text,
     };
 
+    props.newCommentHandler(comment);
+
+    setText("");
+
+    // -----------------------
+
     //fetching token as this is a protected route
-    const token = localStorage.getItem("authToken");
+    // const token = localStorage.getItem("authToken");
 
-    const url = "http://localhost:5005/api/comments";
+    // const url = "http://localhost:5005/api/comments";
 
-    axios
-      .post(url, comment, {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then(() => {
-        // navigate(`/objects/${props.objectCatalogueId}`);
-        navigate("/objects");
-      })
-      .catch((error) => {
-        console.log(error);
-        setErrorMessage(error);
-      });
+    // axios
+    //   .post(url, comment, {
+    //     headers: {
+    //       Authorization: `Bearer ${token}`,
+    //     },
+    //   })
+    //   .then(() => {
+    //     // navigate(`/objects/${props.objectCatalogueId}`);
+    //     navigate("/objects");
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     setErrorMessage(error);
+    //   });
+    //-------------------------------------
   };
 
   return (

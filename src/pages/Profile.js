@@ -13,16 +13,21 @@ function Profile() {
   const [events, setEvents] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
-  const userId = user._id;
+  // const userId = user._id;
+
+  console.log(user._id);
 
   const url = `http://localhost:5005/api/events`;
 
+  //fetching token to send it in the header as the event routes are protected behing JTW auth
+  const storedToken = localStorage.getItem("authToken");
+
   useEffect(() => {
     axios
-      .get(url)
+      .get(url, { headers: { Authorization: `Bearer ${storedToken}` } })
       .then((data) => {
         const userEvents = data.data.filter((eachEvent) => {
-          return (eachEvent.userId = userId);
+          return eachEvent.userId === user._id;
         });
         setEventsData(userEvents);
         setEvents(userEvents);
@@ -31,7 +36,7 @@ function Profile() {
       .catch((error) => {
         console.log(error);
       });
-  }, [userId]);
+  }, [user._id]);
 
   return (
     <div>

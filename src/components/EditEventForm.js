@@ -35,8 +35,16 @@ function EditEventForm(props) {
     e.preventDefault();
     console.log(event);
     const url = `http://localhost:5005/api/events/${props.eventData._id}`;
+
+    //fetchin the token as the event route is protected
+    const storedToken = localStorage.getItem("authToken");
+
     axios
-      .put(url, event)
+      .put(url, event, {
+        headers: {
+          Authorization: `Bearer ${storedToken}`,
+        },
+      })
       .then((response) => {
         console.log("event updated: " + response.data);
         setName("");

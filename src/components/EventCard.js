@@ -10,8 +10,15 @@ function EventCard(props) {
     console.log(props.event._id);
     const url = `http://localhost:5005/api/events/${props.event._id}`;
 
+    //fetchin the token as the event route is protected
+    const storedToken = localStorage.getItem("authToken");
+
     axios
-      .delete(url)
+      .delete(url, {
+        headers: {
+          Authorization: `Bearer ${storedToken}`,
+        },
+      })
       .then(() => {
         navigate("/profile");
       })

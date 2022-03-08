@@ -14,10 +14,16 @@ function EditEvent(props) {
 
   const url = `http://localhost:5005/api/events/${id}`;
   useEffect(() => {
+    //fetchin the token as the event route is protected
+    const storedToken = localStorage.getItem("authToken");
+
     axios
-      .get(url)
+      .get(url, {
+        headers: {
+          Authorization: `Bearer ${storedToken}`,
+        },
+      })
       .then((data) => {
-        console.log(data);
         setEventData(data.data);
         setIsLoading(false);
       })

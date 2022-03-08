@@ -22,19 +22,16 @@ function EventForm(props) {
     myEventData = Object.assign({}, props.eventData); //assigning to my object so it can be referenced in the form
   }
 
-  console.log(myEventData);
-
-  //set value of form input from the object catalogue or existing event(if any)
+  //set value of form input from the object catalogue if any or they will empty
   const [name, setName] = useState(
     `${myEventData.commonName} ${myEventData.messier}`
   );
   const [objectType, setObjectType] = useState(myEventData.object);
-  const [img, setImg] = useState(myEventData.image);
   const [season, setSeason] = useState(myEventData.season);
   const [difficulty, setDifficulty] = useState(myEventData.difficulty);
   const [seen, setSeen] = useState("");
 
-  //set value of form input specific to the event to blank
+  //set value of form input to blank
 
   const [time, setTime] = useState("");
   const [place, setPlace] = useState("");
@@ -61,11 +58,18 @@ function EventForm(props) {
 
   const addEvent = (e) => {
     e.preventDefault();
-    console.log(event);
+
     const url = `http://localhost:5005/api/events/`;
 
+    //fetchin the token as the event route is protected
+    const storedToken = localStorage.getItem("authToken");
+
     axios
-      .post(url, event)
+      .post(url, event, {
+        headers: {
+          Authorization: `Bearer ${storedToken}`,
+        },
+      })
       .then((response) => {
         console.log("event added: " + response.data);
         setName("");

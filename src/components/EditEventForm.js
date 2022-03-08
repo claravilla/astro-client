@@ -1,12 +1,11 @@
 import axios from "axios";
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import ButtonLink from "../components/ButtonLink";
 
 function EditEventForm(props) {
   const [name, setName] = useState(props.eventData.name);
   const [objectType, setObjectType] = useState(props.eventData.object);
-  const [img, setImg] = useState(props.eventData.image);
   const [season, setSeason] = useState(props.eventData.season);
   const [difficulty, setDifficulty] = useState(props.eventData.difficulty);
   const [seen, setSeen] = useState(props.eventData.seen);
@@ -60,7 +59,6 @@ function EditEventForm(props) {
   return (
     <div>
       <form className="form" onSubmit={editEvent}>
-        {/* <img src={img} alt={name}></img> */}
         <label>Name</label>
         <input
           type="text"
@@ -137,7 +135,7 @@ function EditEventForm(props) {
         <div className="form-buttons-section">
           <ButtonLink classProp="btn-link-dark" url="/profile" text="Cancel" />
           <button className="form-submit-btn" type="submit">
-            Add Event
+            Edit Event
           </button>
         </div>
       </form>

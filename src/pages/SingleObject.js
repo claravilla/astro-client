@@ -110,18 +110,18 @@ function SingleObject() {
                   <td className="obj-table-header">Difficulty</td>
                   <td>{spaceObject.difficulty}</td>
                 </tr>
+                <tr>
+                  <td className="obj-table-header">Sky Map</td>
+                  <td>
+                    <img
+                      className="map-img"
+                      src={spaceObject.imageMap}
+                      alt={`Map for ${spaceObject.messier}`}
+                    ></img>
+                  </td>
+                </tr>
               </tbody>
             </table>
-          </div>
-          <div>
-            <h3>Where to find it </h3>
-            <a href={spaceObject.imageMap}>
-              <img
-                className="map-img"
-                src={spaceObject.imageMap}
-                alt={`Map for ${spaceObject.messier}`}
-              ></img>
-            </a>
           </div>
           <div className="comments-section">
             <h3>Comments</h3>

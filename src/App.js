@@ -12,7 +12,7 @@ import EditEvent from "../src/pages/EditEvent";
 import ErrorPage from "./pages/ErrorPage";
 import AddEventFromCatalogue from "./pages/AddEventFromCatalogue";
 import IsPrivate from "./components/IsPrivate";
-import IsGuest from "./components/IsGuest";
+import IsAnon from "./components/IsAnon";
 
 function App() {
   return (
@@ -24,17 +24,17 @@ function App() {
         <Route
           path="/signup"
           element={
-            <IsGuest>
+            <IsAnon>
               <Signup />
-            </IsGuest>
+            </IsAnon>
           }
         />
         <Route
           path="/login"
           element={
-            <IsGuest>
+            <IsAnon>
               <Login />
-            </IsGuest>
+            </IsAnon>
           }
         />
         <Route
@@ -45,7 +45,14 @@ function App() {
             </IsPrivate>
           }
         />
-        <Route path="/add-event" element={<AddEvent />}></Route>
+        <Route
+          path="/add-event"
+          element={
+            <IsPrivate>
+              <AddEvent />
+            </IsPrivate>
+          }
+        ></Route>
         <Route path="/add-event/:id" element={<AddEventFromCatalogue />} />
         <Route path="/edit-event/:id" element={<EditEvent />} />
         <Route path="/*" element={<ErrorPage />} />

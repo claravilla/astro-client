@@ -30,12 +30,50 @@ function EventCard(props) {
 
   return (
     <div className="my-card event-card">
-      <a
-        className="title-a-tag"
-        href={`/objects/${props.event.ojectCatalogueId}`}
-      >
+      {props.event.ojectCatalogueId !== "" && (
+        <a
+          className="title-a-tag"
+          href={`/objects/${props.event.ojectCatalogueId}`}
+        >
+          <div className="event-header">
+            <h3>{props.event.name}</h3>
+            {props.event.seen ? (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="50"
+                height="50"
+                fill="green"
+                className="bi bi-check-lg"
+                viewBox="0 0 16 16"
+              >
+                <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+              </svg>
+            ) : (
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                fill="red"
+                className="bi bi-x-lg"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M13.854 2.146a.5.5 0 0 1 0 .708l-11 11a.5.5 0 0 1-.708-.708l11-11a.5.5 0 0 1 .708 0Z"
+                />
+                <path
+                  fillRule="evenodd"
+                  d="M2.146 2.146a.5.5 0 0 0 0 .708l11 11a.5.5 0 0 0 .708-.708l-11-11a.5.5 0 0 0-.708 0Z"
+                />
+              </svg>
+            )}
+          </div>
+        </a>
+      )}
+
+      {props.event.ojectCatalogueId === "" && (
         <div className="event-header">
-          <h4>{props.event.name}</h4>
+          <h3>{props.event.name}</h3>
           {props.event.seen ? (
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -67,33 +105,33 @@ function EventCard(props) {
             </svg>
           )}
         </div>
-      </a>
+      )}
 
-      <table>
+      <table className="table-event">
         <tbody>
           <tr>
-            <td>Type:</td>
+            <td className="table-header">Type:</td>
             <td>{props.event.object}</td>
           </tr>
           <tr>
-            <td>Season:</td>
+            <td className="table-header">Season:</td>
             <td>{props.event.season}</td>
           </tr>
           <tr>
-            <td>Difficulty:</td>
+            <td className="table-header">Difficulty:</td>
             <td>{props.event.difficulty}</td>
           </tr>
 
           <tr>
-            <td>When:</td>
+            <td className="table-header">When:</td>
             <td>{props.event.time}</td>
           </tr>
           <tr>
-            <td>Where:</td>
+            <td className="table-header">Where:</td>
             <td>{props.event.place}</td>
           </tr>
           <tr>
-            <td>Observations</td>
+            <td className="table-header">Observations:</td>
             <td>{props.event.observations}</td>
           </tr>
         </tbody>

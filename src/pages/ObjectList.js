@@ -8,10 +8,11 @@ import telescope from "../images/telescope.gif";
 
 function ObjectList() {
   const url = "http://localhost:5005/api/astro-objects";
-  const [objectsData, setObjectsData] = useState([]);
+  // const [objectsData, setObjectsData] = useState([]);
   const [objects, setObjects] = useState([]);
   const [contentIsLoading, setContentIsLoading] = useState(true);
   const { isLoggedIn } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     axios
@@ -22,12 +23,13 @@ function ObjectList() {
             parseInt(a.messier.substring(1)) - parseInt(b.messier.substring(1))
           );
         });
-        setObjectsData(messierOrdered);
+        // setObjectsData(messierOrdered);
         setObjects(messierOrdered);
         setContentIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage(error.response.data.error);
       });
   }, []);
 
@@ -61,6 +63,7 @@ function ObjectList() {
           objects.map((eachObject) => {
             return <ObjectCard object={eachObject} key={eachObject._id} />;
           })}
+        {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
         <Footer />
       </div>
     </div>

@@ -10,12 +10,9 @@ import telescope from "../images/telescope.gif";
 function Profile() {
   const { user } = useContext(AuthContext);
   const [eventsData, setEventsData] = useState([]);
-  const [events, setEvents] = useState([]);
   const [contentIsLoading, setContentIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
-  // const userId = user._id;
-
-  console.log(user._id);
+  const userId = user._id;
 
   const url = `http://localhost:5005/api/events`;
 
@@ -27,16 +24,16 @@ function Profile() {
       .get(url, { headers: { Authorization: `Bearer ${storedToken}` } })
       .then((data) => {
         const userEvents = data.data.filter((eachEvent) => {
-          return eachEvent.userId === user._id;
+          return eachEvent.userId === userId;
         });
         setEventsData(userEvents);
-        setEvents(userEvents);
         setContentIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage();
       });
-  }, [user._id]);
+  }, [userId]);
 
   return (
     <div>
@@ -66,7 +63,7 @@ function Profile() {
 
         {!contentIsLoading && (
           <div className="my-event">
-            {events.map((eachEvent) => {
+            {eventsData.map((eachEvent) => {
               return <EventCard event={eachEvent} key={eachEvent._id} />;
             })}
           </div>

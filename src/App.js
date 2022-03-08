@@ -11,6 +11,8 @@ import AddEvent from "../src/pages/AddEvent";
 import EditEvent from "../src/pages/EditEvent";
 import ErrorPage from "./pages/ErrorPage";
 import AddEventFromCatalogue from "./pages/AddEventFromCatalogue";
+import IsPrivate from "./components/IsPrivate";
+import IsGuest from "./components/IsGuest";
 
 function App() {
   return (
@@ -19,12 +21,54 @@ function App() {
         <Route path="/" element={<HomePage />} />
         <Route path="/objects" element={<ObjectList />} />
         <Route path="/objects/:id" element={<SingleObject />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/addEvent" element={<AddEvent />} />
-        <Route path="/addEvent/:id" element={<AddEventFromCatalogue />} />
-        <Route path="/editEvent/:id" element={<EditEvent />} />
+        <Route
+          path="/signup"
+          element={
+            <IsGuest>
+              <Signup />
+            </IsGuest>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <IsGuest>
+              <Login />
+            </IsGuest>
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            <IsPrivate>
+              <Profile />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/addEvent"
+          element={
+            <IsPrivate>
+              <AddEvent />
+            </IsPrivate>
+          }
+        ></Route>
+        <Route
+          path="/addEvent/:id"
+          element={
+            <IsPrivate>
+              <AddEventFromCatalogue />
+            </IsPrivate>
+          }
+        />
+        <Route
+          path="/editEvent/:id"
+          element={
+            <IsPrivate>
+              <EditEvent />
+            </IsPrivate>
+          }
+        />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
     </div>

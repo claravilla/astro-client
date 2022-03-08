@@ -14,7 +14,6 @@ function Profile() {
   const [isLoading, setIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
   const userId = user._id;
-  console.log(userId);
 
   const url = `http://localhost:5005/api/events`;
 

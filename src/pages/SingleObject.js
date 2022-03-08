@@ -6,6 +6,7 @@ import ButtonLink from "../components/ButtonLink";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { AuthContext } from "../context/AuthContext";
+import telescope from "../images/telescope.gif";
 
 function SingleObject() {
   const { id } = useParams();
@@ -50,7 +51,16 @@ function SingleObject() {
         />
       )}
 
-      {isLoading && <p>Adjusting telescope lenses..</p>}
+      {isLoading && (
+        <div className="placeholder-page">
+          <h2 className="placeholder-title">Telescope is focusing...</h2>
+          <img
+            className="placeholder-img"
+            src={telescope}
+            alt="telescope"
+          ></img>
+        </div>
+      )}
       {!isLoading && (
         <div className="single-obj-container medium-blue">
           <div className="obj-header">

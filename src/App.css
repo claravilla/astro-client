@@ -301,16 +301,54 @@ td {
   align-items: flex-start;
   margin: 30px;
   font-family: "Mukta Vaani", sans-serif;
+  width: 90%;
 }
 .comment-card {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding: 20px;
-  margin: 30px;
-  border: 1px solid #051367;
+  margin: 30px 0;
+  border: 2px solid #051367;
   font-family: "Mukta Vaani", sans-serif;
+  width: 90%;
+  background-color: #afe2f7;
+  font-size: 1rem;
 }
+.comment-form-section {
+  width: 90%;
+}
+.comment-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 30px 0;
+  border: 2px solid #051367;
+  font-family: "Mukta Vaani", sans-serif;
+  width: 100%;
+  background-color: white;
+  font-size: 1rem;
+}
+
+.comment-form input {
+  border-radius: 10px;
+  border: 1px solid gray;
+  padding: 5px 10px;
+  margin: 10px 20px;
+  width: 75%;
+  height: 90%;
+}
+
+.comment-btn {
+  margin: 0px 10px 10px 0;
+  background-color: #051367;
+  border-radius: 25px;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  align-self: flex-end;
+}
+
 .comment-title {
   font-style: italic;
   font-family: "Mukta Vaani", sans-serif;

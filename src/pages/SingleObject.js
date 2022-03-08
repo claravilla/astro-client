@@ -7,6 +7,7 @@ import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import { AuthContext } from "../context/AuthContext";
 import telescope from "../images/telescope.gif";
+import CommentForm from "../components/CommentForm";
 
 function SingleObject() {
   const { id } = useParams();
@@ -136,8 +137,11 @@ function SingleObject() {
           <div className="comments-section">
             <h3>Comments</h3>
             {comments.map((eachComment) => {
-              return <CommentCard comment={eachComment} />;
+              return (
+                <CommentCard comment={eachComment} key={eachComment._id} />
+              );
             })}
+            {isLoggedIn && <CommentForm objectCatalogueId={id} />}
           </div>
         </div>
       )}

@@ -20,7 +20,6 @@ function SingleObject() {
   useEffect(() => {
     axios
       .get(url)
-      .populate("comments")
       .then((data) => {
         setSpaceObject(data.data);
         setComments(data.data.comments);

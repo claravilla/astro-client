@@ -10,13 +10,14 @@ function SearchBar(props) {
   };
 
   return (
-    <form>
-      <label>Search by Name</label>
+    <form className="search-bar">
       <input
+        className="search-input"
         type="text"
         name="searchInput"
         value={searchInput}
         onChange={handleSearchInput}
+        placeholder="Search by Name"
       />
     </form>
   );

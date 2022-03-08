@@ -9,7 +9,7 @@ import telescope from "../images/telescope.gif";
 function AddEventFromCatalogue() {
   const _id = useParams();
   const [objectData, setObjectData] = useState({});
-  const [isLoading, setIsLoading] = useState(true);
+  const [contentIsLoading, setContentIsLoading] = useState(true);
 
   const url = `http://localhost:5005/api/astro-objects/${_id.id}`;
 
@@ -19,7 +19,7 @@ function AddEventFromCatalogue() {
       .then((data) => {
         console.log(data.data);
         setObjectData(data.data);
-        setIsLoading(false);
+        setContentIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -35,7 +35,7 @@ function AddEventFromCatalogue() {
         url3="/objects"
         text3="Catalogue"
       />
-      {isLoading && (
+      {contentIsLoading && (
         <div className="placeholder-page">
           <h2 className="placeholder-title">Telescope is focusing...</h2>
           <img
@@ -46,7 +46,7 @@ function AddEventFromCatalogue() {
         </div>
       )}
 
-      {!isLoading && (
+      {!contentIsLoading && (
         <div>
           <EventForm
             eventData={objectData}

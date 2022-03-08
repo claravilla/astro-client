@@ -10,7 +10,7 @@ function EditEvent(props) {
   const { id } = useParams();
   const [errorMessage, setErrorMessage] = useState("");
   const [eventData, setEventData] = useState();
-  const [isLoading, setIsLoading] = useState(true);
+  const [contentIsLoading, setContentIsLoading] = useState(true);
 
   const url = `http://localhost:5005/api/events/${id}`;
   useEffect(() => {
@@ -25,7 +25,7 @@ function EditEvent(props) {
       })
       .then((data) => {
         setEventData(data.data);
-        setIsLoading(false);
+        setContentIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -36,7 +36,7 @@ function EditEvent(props) {
   return (
     <div>
       <Navbar loggedIn="true" url1="/objects" text1="Catalogue" />
-      {isLoading && (
+      {contentIsLoading && (
         <div className="placeholder-page">
           <h2 className="placeholder-title">Telescope is focusing...</h2>
           <img
@@ -47,7 +47,7 @@ function EditEvent(props) {
         </div>
       )}
 
-      {!isLoading && <EditEventForm eventData={eventData} />}
+      {!contentIsLoading && <EditEventForm eventData={eventData} />}
       <Footer />
       {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
     </div>

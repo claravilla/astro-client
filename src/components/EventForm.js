@@ -56,7 +56,7 @@ function EventForm(props) {
     userId: user._id,
   };
 
-  const addEvent = (e) => {
+  const createNewEvent = (e) => {
     e.preventDefault();
 
     const url = `http://localhost:5005/api/events/`;
@@ -93,8 +93,7 @@ function EventForm(props) {
   //fill name with messier and commonName
   return (
     <div>
-      <form className="form" onSubmit={addEvent}>
-        {/* <img src={img} alt={name}></img> */}
+      <form className="form" onSubmit={createNewEvent}>
         <label>Name</label>
         <input
           type="text"

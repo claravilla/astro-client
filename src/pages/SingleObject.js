@@ -12,7 +12,7 @@ function SingleObject() {
   const { id } = useParams();
   const [spaceObject, setSpaceObject] = useState({});
   const [comments, setComments] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [contentIsLoading, setContentIsLoading] = useState(true);
   const { isLoggedIn } = useContext(AuthContext);
 
   const url = `http://localhost:5005/api/astro-objects/${id}`;
@@ -23,7 +23,7 @@ function SingleObject() {
       .then((data) => {
         setSpaceObject(data.data);
         setComments(data.data.comments);
-        setIsLoading(false);
+        setContentIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -51,7 +51,7 @@ function SingleObject() {
         />
       )}
 
-      {isLoading && (
+      {contentIsLoading && (
         <div className="placeholder-page">
           <h2 className="placeholder-title">Telescope is focusing...</h2>
           <img
@@ -61,7 +61,7 @@ function SingleObject() {
           ></img>
         </div>
       )}
-      {!isLoading && (
+      {!contentIsLoading && (
         <div className="single-obj-container medium-blue">
           <div className="obj-header">
             <img
@@ -79,7 +79,7 @@ function SingleObject() {
               <div className="add-event-btn">
                 <ButtonLink
                   classProp="btn-link-dark"
-                  url={`/addEvent/${spaceObject._id}`}
+                  url={`/add-event/${spaceObject._id}`}
                   text="Add Event"
                 ></ButtonLink>
               </div>

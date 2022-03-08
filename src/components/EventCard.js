@@ -99,7 +99,7 @@ function EventCard(props) {
         </tbody>
       </table>
       <div className="form-buttons-section">
-        <a href={`/editEvent/${props.event._id}`}>
+        <a href={`/edit-event/${props.event._id}`}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="30"

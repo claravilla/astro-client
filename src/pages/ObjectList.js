@@ -10,7 +10,7 @@ function ObjectList() {
   const url = "http://localhost:5005/api/astro-objects";
   const [objectsData, setObjectsData] = useState([]);
   const [objects, setObjects] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [contentIsLoading, setContentIsLoading] = useState(true);
   const { isLoggedIn } = useContext(AuthContext);
 
   useEffect(() => {
@@ -24,7 +24,7 @@ function ObjectList() {
         });
         setObjectsData(messierOrdered);
         setObjects(messierOrdered);
-        setIsLoading(false);
+        setContentIsLoading(false);
       })
       .catch((error) => {
         console.log(error);
@@ -46,7 +46,7 @@ function ObjectList() {
       )}
       <h1 className="header-obj-list">Messier Catalogue</h1>
       <div className="my-container">
-        {isLoading && (
+        {contentIsLoading && (
           <div className="placeholder-page">
             <h2 className="placeholder-title">Telescope is focusing...</h2>
             <img
@@ -57,7 +57,7 @@ function ObjectList() {
           </div>
         )}
 
-        {!isLoading &&
+        {!contentIsLoading &&
           objects.map((eachObject) => {
             return <ObjectCard object={eachObject} key={eachObject._id} />;
           })}

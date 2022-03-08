@@ -11,7 +11,9 @@ function EditEventForm(props) {
   const [seen, setSeen] = useState(props.eventData.seen);
   const [time, setTime] = useState(props.eventData.time);
   const [place, setPlace] = useState(props.eventData.place);
-  const [observations, setObservations] = useState(props.observations);
+  const [observations, setObservations] = useState(
+    props.eventData.observations
+  );
 
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -33,7 +35,6 @@ function EditEventForm(props) {
 
   const editEvent = (e) => {
     e.preventDefault();
-    console.log(event);
     const url = `http://localhost:5005/api/events/${props.eventData._id}`;
 
     //fetchin the token as the event route is protected
@@ -46,7 +47,6 @@ function EditEventForm(props) {
         },
       })
       .then((response) => {
-        console.log("event updated: " + response.data);
         setName("");
         setObjectType("");
         setTime("");

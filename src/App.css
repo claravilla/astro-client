@@ -104,7 +104,7 @@ h4 {
   align-items: center;
   color: #051367;
   text-align: center;
-  margin: 50px;
+  margin: 30px 50px 30px 50px;
   font-family: "Mukta Vaani", sans-serif;
 }
 
@@ -128,7 +128,7 @@ h4 {
 }
 
 .btn-margin {
-  margin-top: 40px;
+  margin-top: 30px;
 }
 
 .board-section {

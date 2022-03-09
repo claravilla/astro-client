@@ -9,7 +9,7 @@ function SearchBar(props) {
     props.handleSearch(event.target.value.toLowerCase());
   };
 
-  const handleSearchReset = () => {
+  const handleSearchReset = (e) => {
     setSearchInput("");
     props.resetSearch();
   };

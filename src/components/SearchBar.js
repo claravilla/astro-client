@@ -9,17 +9,27 @@ function SearchBar(props) {
     props.handleSearch(event.target.value.toLowerCase());
   };
 
+  const handleSearchReset = () => {
+    setSearchInput("");
+    props.resetSearch();
+  };
+
   return (
-    <form className="search-bar">
-      <input
-        className="search-input"
-        type="text"
-        name="searchInput"
-        value={searchInput}
-        onChange={handleSearchInput}
-        placeholder="Search by Name"
-      />
-    </form>
+    <div className="search-section">
+      <form className="search-bar">
+        <input
+          className="search-input"
+          type="text"
+          name="searchInput"
+          value={searchInput}
+          onChange={handleSearchInput}
+          placeholder="Search by Name"
+        />
+      </form>
+      <button className="search-btn" onClick={handleSearchReset}>
+        Reset
+      </button>
+    </div>
   );
 }
 

@@ -14,7 +14,7 @@ function Profile() {
   const [errorMessage, setErrorMessage] = useState("");
   const userId = user._id;
 
-  const url = `http://localhost:5005/api/events`;
+  const url = process.env.REACT_APP_API_URL + "/api/events";
 
   //fetching token to send it in the header as the event routes are protected behing JTW auth
   const storedToken = localStorage.getItem("authToken");

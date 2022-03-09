@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
 const AuthContext = React.createContext();
-const url = "http://localhost:5005/api/auth/verify";
+const url = process.env.REACT_APP_API_URL + "/api/auth/verify";
 
 function AuthContextWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);

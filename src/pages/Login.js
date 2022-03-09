@@ -13,7 +13,7 @@ function Login() {
   const { setToken, checkIsAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const url = "http://localhost:5005/api/auth/login";
+  const url = process.env.REACT_APP_API_URL + "/api/auth/login";
 
   const handleLogin = (event) => {
     event.preventDefault();

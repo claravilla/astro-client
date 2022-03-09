@@ -8,7 +8,8 @@ function EventCard(props) {
 
   const deleteEvent = () => {
     console.log(props.event._id);
-    const url = `http://localhost:5005/api/events/${props.event._id}`;
+    const url =
+      process.env.REACT_APP_API_URL + "/api/events/" + props.event._id;
 
     //fetchin the token as the event route is protected
     const storedToken = localStorage.getItem("authToken");

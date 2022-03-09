@@ -12,7 +12,7 @@ function EditEvent(props) {
   const [eventData, setEventData] = useState();
   const [contentIsLoading, setContentIsLoading] = useState(true);
 
-  const url = `http://localhost:5005/api/events/${id}`;
+  const url = process.env.REACT_APP_API_URL + "/api/events/" + id;
   useEffect(() => {
     //fetchin the token as the event route is protected
     const storedToken = localStorage.getItem("authToken");

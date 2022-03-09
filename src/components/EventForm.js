@@ -59,7 +59,7 @@ function EventForm(props) {
   const createNewEvent = (e) => {
     e.preventDefault();
 
-    const url = `http://localhost:5005/api/events/`;
+    const url = process.env.REACT_APP_API_URL + "/api/events";
 
     //fetchin the token as the event route is protected
     const storedToken = localStorage.getItem("authToken");

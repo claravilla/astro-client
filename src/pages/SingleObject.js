@@ -17,7 +17,7 @@ function SingleObject() {
   const { isLoggedIn } = useContext(AuthContext);
   const [errorMessage, setErrorMessage] = useState("");
 
-  const url = `http://localhost:5005/api/astro-objects/${id}`;
+  const url = process.env.REACT_APP_API_URL + "/api/astro-objects/" + id;
 
   useEffect(() => {
     axios
@@ -36,7 +36,7 @@ function SingleObject() {
     //fetching token as this is a protected route
     const token = localStorage.getItem("authToken");
 
-    const url = "http://localhost:5005/api/comments";
+    const url = process.env.REACT_APP_API_URL + "/api/comments";
 
     axios
       .post(url, comment, {

@@ -15,7 +15,7 @@ function Signup() {
   const { setToken, checkIsAuthenticated } = useContext(AuthContext);
   const navigate = useNavigate();
 
-  const url = "http://localhost:5005/api/auth/signup";
+  const url = process.env.REACT_APP_API_URL + "/api/auth/signup";
 
   const signupUser = (e) => {
     e.preventDefault();

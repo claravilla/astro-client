@@ -11,7 +11,7 @@ function AddEventFromCatalogue() {
   const [objectData, setObjectData] = useState({});
   const [contentIsLoading, setContentIsLoading] = useState(true);
 
-  const url = `http://localhost:5005/api/astro-objects/${_id.id}`;
+  const url = process.env.REACT_APP_API_URL + "/api/astro-objects/" + _id.id;
 
   useEffect(() => {
     axios
@@ -51,8 +51,6 @@ function AddEventFromCatalogue() {
           <EventForm
             eventData={objectData}
             cancelUrl={`/objects/${objectData._id}`}
-            url="http://localhost:5005/api/events"
-            method="post"
           />
           <Footer />
         </div>

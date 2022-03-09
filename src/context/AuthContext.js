@@ -9,7 +9,7 @@ const url = process.env.REACT_APP_API_URL + "/api/auth/verify";
 function AuthContextWrapper(props) {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState(null);
 
   const navigate = useNavigate();
 
@@ -32,12 +32,12 @@ function AuthContextWrapper(props) {
           console.log(error);
           setIsLoggedIn(false);
           setIsLoading(false);
-          setUser({});
+          setUser(null);
         });
     } else {
       setIsLoading(false);
       setIsLoggedIn(false);
-      setUser({});
+      setUser(null);
     }
   };
 

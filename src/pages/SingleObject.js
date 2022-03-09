@@ -166,12 +166,20 @@ function SingleObject() {
             </table>
           </div>
           <div className="comments-section">
-            <h3>Comments</h3>
-            {comments.map((eachComment) => {
-              return (
-                <CommentCard comment={eachComment} key={eachComment._id} />
-              );
-            })}
+            {comments.length !== 0 &&
+              (<h3>Comments</h3>)(
+                <div>
+                  {comments.map((eachComment) => {
+                    return (
+                      <CommentCard
+                        comment={eachComment}
+                        key={eachComment._id}
+                      />
+                    );
+                  })}
+                </div>
+              )}
+
             {isLoggedIn && (
               <CommentForm
                 objectCatalogueId={id}

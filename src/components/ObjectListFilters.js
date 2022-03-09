@@ -13,9 +13,9 @@ function ObjectListFilters(props) {
 
   const resetFilters = (e) => {
     e.preventDefault();
-    // setSeason("0");
-    // setType("0");
-    // setDifficulty("0");
+    setSeason("0");
+    setType("0");
+    setDifficulty("0");
     props.resetFilters();
   };
 

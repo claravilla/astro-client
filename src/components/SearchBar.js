@@ -27,7 +27,7 @@ function SearchBar(props) {
         />
       </form>
       <button className="search-btn" onClick={handleSearchReset}>
-        Reset
+        Reset Search
       </button>
     </div>
   );

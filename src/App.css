@@ -525,6 +525,7 @@ label {
   justify-content: space-around;
   margin-top: 30px;
   align-items: flex-start;
+  width: 80%;
 }
 
 .search-bar {
@@ -540,10 +541,60 @@ label {
   width: 100%;
 }
 .search-btn {
-  /* margin: 0px 10px 10px 0; */
   background-color: #051367;
   border-radius: 25px;
   color: white;
   padding: 8px 20px;
   border: none;
+}
+
+/* ---------FILTER STYLE ---------- */
+
+.filters-section {
+  margin-top: 30px;
+  border: 2px solid #afe2f7;
+  width: 80%;
+  border-radius: 25px;
+}
+
+.filters-section p {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #051367;
+}
+.filters-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.filters-input-section {
+  display: flex;
+  justify-content: center;
+}
+
+.filters-btn-section {
+  display: flex;
+  justify-content: center;
+}
+
+.filters-form select {
+  border-radius: 10px;
+  border: 2px solid #afe2f7;
+  padding: 5px 10px;
+  margin: 0 20px;
+}
+
+.filters-btn-section button {
+  background-color: #051367;
+  border-radius: 25px;
+  color: white;
+  padding: 8px 20px;
+  border: none;
+  margin: 20px;
+}
+
+.custom-list-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }

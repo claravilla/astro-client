@@ -25,7 +25,7 @@ function EventCard(props) {
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage(error.response.data.error);
+        setErrorMessage(error.message);
       });
   };
 

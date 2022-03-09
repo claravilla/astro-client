@@ -6,10 +6,10 @@ import Navbar from "../components/Navbar";
 import { AuthContext } from "../context/AuthContext";
 import telescope from "../images/telescope.gif";
 import SearchBar from "../components/SearchBar";
+import ObjectListFilters from "../components/ObjectListFilters";
 
 function ObjectList() {
   const url = process.env.REACT_APP_API_URL + "/api/astro-objects";
-  console.log(url);
   const [objectsData, setObjectsData] = useState([]);
   const [objects, setObjects] = useState([]);
   const [contentIsLoading, setContentIsLoading] = useState(true);
@@ -45,6 +45,33 @@ function ObjectList() {
     setObjects(searchedObjects);
   };
 
+  const handleFilters = (difficulty, season, type) => {
+    console.log("handle filter");
+    let filteredObjects = [];
+
+    if (difficulty !== "0") {
+      filteredObjects = objectsData.filter((eachObject) => {
+        return eachObject.difficulty === difficulty;
+      });
+    } else {
+      filteredObjects = objectsData;
+    }
+
+    if (season !== "0") {
+      filteredObjects = filteredObjects.filter((eachObject) => {
+        return eachObject.season === season;
+      });
+    }
+
+    if (type !== "0") {
+      filteredObjects = filteredObjects.filter((eachObject) => {
+        return eachObject.object === type;
+      });
+    }
+
+    setObjects(filteredObjects);
+  };
+
   const resetCatalogue = () => {
     setObjects(objectsData);
   };
@@ -63,7 +90,14 @@ function ObjectList() {
         />
       )}
       <h1 className="header-obj-list">Messier Catalogue</h1>
-      <SearchBar handleSearch={handleSearch} resetSearch={resetCatalogue} />
+      <div className="custom-list-section">
+        <SearchBar handleSearch={handleSearch} resetSearch={resetCatalogue} />
+        <ObjectListFilters
+          handleFilters={handleFilters}
+          resetFilters={resetCatalogue}
+        />
+      </div>
+      {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
       <div className="my-container">
         {contentIsLoading && (
           <div className="placeholder-page">
@@ -76,12 +110,16 @@ function ObjectList() {
           </div>
         )}
 
+        {!contentIsLoading && objects.length === 0 && (
+          <div className="alert alert-info" role="alert">
+            Sorry, we couldn't find any results.
+          </div>
+        )}
         {!contentIsLoading &&
           objects.map((eachObject) => {
             return <ObjectCard object={eachObject} key={eachObject._id} />;
           })}
 
-        {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
         <Footer />
       </div>
     </div>

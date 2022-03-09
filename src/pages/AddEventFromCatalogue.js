@@ -10,6 +10,7 @@ function AddEventFromCatalogue() {
   const _id = useParams();
   const [objectData, setObjectData] = useState({});
   const [contentIsLoading, setContentIsLoading] = useState(true);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const url = process.env.REACT_APP_API_URL + "/api/astro-objects/" + _id.id;
 
@@ -23,6 +24,7 @@ function AddEventFromCatalogue() {
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage(error.message);
       });
   }, []);
 
@@ -52,6 +54,7 @@ function AddEventFromCatalogue() {
             eventData={objectData}
             cancelUrl={`/objects/${objectData._id}`}
           />
+          {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
           <Footer />
         </div>
       )}

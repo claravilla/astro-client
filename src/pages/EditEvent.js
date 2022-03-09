@@ -29,7 +29,7 @@ function EditEvent(props) {
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage(error.response.data.error);
+        setErrorMessage(error.message);
       });
   }, [id]);
 

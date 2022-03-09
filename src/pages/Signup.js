@@ -20,6 +20,7 @@ function Signup() {
   const signupUser = (e) => {
     e.preventDefault();
     const newUser = { username, email, password };
+    console.log(newUser);
     axios
       .post(url, newUser)
       .then((data) => {
@@ -35,7 +36,7 @@ function Signup() {
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage(error.response.data.error);
+        setErrorMessage(error.message);
       });
   };
 

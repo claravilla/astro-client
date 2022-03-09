@@ -31,7 +31,7 @@ function Profile() {
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage();
+        setErrorMessage(error.message);
       });
   }, [userId]);
 

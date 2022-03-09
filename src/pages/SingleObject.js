@@ -29,6 +29,7 @@ function SingleObject() {
       })
       .catch((error) => {
         console.log(error);
+        setErrorMessage(error.message);
       });
   }, []);
 

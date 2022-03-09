@@ -33,7 +33,6 @@ function SingleObject() {
 
   // -------------
   const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate();
 
   const submitComment = (comment) => {
     //fetching token as this is a protected route
@@ -48,8 +47,6 @@ function SingleObject() {
         },
       })
       .then(() => {
-        // navigate(`/objects/${props.objectCatalogueId}`);
-        // navigate("/objects");
         setComments([...comments, comment]);
       })
       .catch((error) => {

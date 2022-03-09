@@ -15,6 +15,7 @@ function SingleObject() {
   const [comments, setComments] = useState([]);
   const [contentIsLoading, setContentIsLoading] = useState(true);
   const { isLoggedIn } = useContext(AuthContext);
+  const [errorMessage, setErrorMessage] = useState("");
 
   const url = `http://localhost:5005/api/astro-objects/${id}`;
 
@@ -31,9 +32,6 @@ function SingleObject() {
       });
   }, []);
 
-  // -------------
-  const [errorMessage, setErrorMessage] = useState("");
-
   const submitComment = (comment) => {
     //fetching token as this is a protected route
     const token = localStorage.getItem("authToken");
@@ -47,7 +45,13 @@ function SingleObject() {
         },
       })
       .then(() => {
-        setComments([...comments, comment]);
+        return axios.get(url);
+      })
+      .then((data) => {
+        const myObjectComments = data.data.filter((eachComment) => {
+          return eachComment.objectCatalogueId === id;
+        });
+        setComments(myObjectComments);
       })
       .catch((error) => {
         console.log(error);

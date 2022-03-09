@@ -1,12 +1,9 @@
 import { useState, useContext } from "react";
-import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
-import axios from "axios";
 
 function CommentForm(props) {
   const { user } = useContext(AuthContext);
   const [text, setText] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
   const createComment = (e) => {
     e.preventDefault();
@@ -25,29 +22,6 @@ function CommentForm(props) {
     props.newCommentHandler(comment);
 
     setText("");
-
-    // -----------------------
-
-    //fetching token as this is a protected route
-    // const token = localStorage.getItem("authToken");
-
-    // const url = "http://localhost:5005/api/comments";
-
-    // axios
-    //   .post(url, comment, {
-    //     headers: {
-    //       Authorization: `Bearer ${token}`,
-    //     },
-    //   })
-    //   .then(() => {
-    //     // navigate(`/objects/${props.objectCatalogueId}`);
-    //     navigate("/objects");
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     setErrorMessage(error);
-    //   });
-    //-------------------------------------
   };
 
   return (
@@ -64,7 +38,6 @@ function CommentForm(props) {
           Post comment
         </button>
       </form>
-      {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
     </div>
   );
 }

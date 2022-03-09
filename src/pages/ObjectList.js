@@ -8,7 +8,8 @@ import telescope from "../images/telescope.gif";
 import SearchBar from "../components/SearchBar";
 
 function ObjectList() {
-  const url = "http://localhost:5005/api/astro-objects";
+  const url = process.env.REACT_APP_API_URL + "/api/astro-objects";
+  console.log(url);
   const [objectsData, setObjectsData] = useState([]);
   const [objects, setObjects] = useState([]);
   const [contentIsLoading, setContentIsLoading] = useState(true);
@@ -30,7 +31,7 @@ function ObjectList() {
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage(error.response.data.error);
+        setErrorMessage(error.message);
       });
   }, []);
 

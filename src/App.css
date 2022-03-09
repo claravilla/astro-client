@@ -519,3 +519,19 @@ label {
 .table-event td {
   width: 50%;
 }
+
+/* ---------SEARCH BAR STYLE ---------- */
+
+.search-bar {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+.search-input {
+  border-radius: 10px;
+  border: 2px solid #afe2f7;
+  padding: 5px 10px;
+  margin: 0 20px;
+  width: 80%;
+  text-align: center;
+}

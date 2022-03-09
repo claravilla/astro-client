@@ -65,7 +65,7 @@ function SingleObject() {
           loggedIn="true"
           url1="/profile"
           text1="My List"
-          url3="/object"
+          url3="/objects"
           text3="Catalogue"
         />
       )}

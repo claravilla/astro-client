@@ -9,7 +9,8 @@ import SearchBar from "../components/SearchBar";
 import ObjectListFilters from "../components/ObjectListFilters";
 
 function ObjectList() {
-  const url = process.env.REACT_APP_API_URL + "/api/astro-objects";
+  // const url = process.env.REACT_APP_API_URL + "/api/astro-objects";
+  const url = "https://astro-watch-list.herokuapp.com/api/astro-objects";
   const [objectsData, setObjectsData] = useState([]);
   const [objects, setObjects] = useState([]);
   const [contentIsLoading, setContentIsLoading] = useState(true);

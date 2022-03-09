@@ -4,6 +4,7 @@ import Navbar from "../components/Navbar";
 // import PictureOfTheDay from "../components/PictureOfTheDay";
 import { AuthContext } from "../context/AuthContext";
 import ButtonLink from "../components/ButtonLink";
+import LeaderBoard from "../components/LeaderBoard";
 
 function HomePage() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -36,7 +37,7 @@ function HomePage() {
           text="Browse the catalogue"
         />
       </div>
-
+      <LeaderBoard />
       <Footer />
     </div>
   );

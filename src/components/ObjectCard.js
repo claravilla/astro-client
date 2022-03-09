@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function ObjectCard(props) {
   return (
     <div className="my-card light-blue">
@@ -8,12 +9,12 @@ function ObjectCard(props) {
       ></img>
       <h5>{`${props.object.messier} ${props.object.commonName}`}</h5>
       <p>{props.object.object}</p>
-      <a
-        href={`/objects/${props.object._id}`}
+      <Link
+        to={`/objects/${props.object._id}`}
         className="object-card-btn dark-blue"
       >
         See Details
-      </a>
+      </Link>
     </div>
   );
 }

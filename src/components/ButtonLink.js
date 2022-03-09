@@ -1,7 +1,10 @@
+import { Link } from "react-router-dom";
 function ButtonLink(props) {
-    return(
-        <a className={props.classProp} href={props.url}>{props.text}</a>
-    )
+  return (
+    <Link className={props.classProp} to={props.url}>
+      {props.text}
+    </Link>
+  );
 }
 
 export default ButtonLink;

@@ -48,7 +48,8 @@ function Profile() {
             text="Add New Event"
           />
         </div>
-        <h2>Your Watching List</h2>
+
+        {eventsData.length !== 0 && <h2>Your Watching List</h2>}
 
         {contentIsLoading && (
           <div className="placeholder-page">

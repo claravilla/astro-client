@@ -532,14 +532,28 @@ label {
   width: 80%;
 }
 
-.search-input {
-  border-radius: 10px;
-  border: 2px solid #afe2f7;
-  padding: 5px 10px;
-  margin: 0 20px;
-  text-align: center;
-  width: 100%;
+@media (min-width: 1101px) {
+  .search-input {
+    border-radius: 10px;
+    border: 2px solid #afe2f7;
+    padding: 5px 10px;
+    margin: 0 20px;
+    text-align: center;
+    width: 100%;
+  }
 }
+
+@media (max-width: 1100px) {
+  .search-input {
+    border-radius: 10px;
+    border: 2px solid #afe2f7;
+    padding: 5px 10px;
+    margin: 0 20px;
+    text-align: center;
+    width: 80%;
+  }
+}
+
 .search-btn {
   background-color: #051367;
   border-radius: 25px;

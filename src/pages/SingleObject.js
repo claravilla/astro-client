@@ -78,6 +78,8 @@ function SingleObject() {
           text1="Sign Up"
           url2="/login"
           text2="Log in"
+          url3="/objects"
+          text3="Catalogue"
         />
       )}
 

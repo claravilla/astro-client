@@ -35,7 +35,6 @@ function ObjectList() {
   }, []);
 
   const handleSearch = (input) => {
-    console.log(input);
     const searchedObjects = objectsData.filter((eachObject) => {
       return (
         eachObject.commonName.toLowerCase().includes(input) ||
@@ -43,6 +42,10 @@ function ObjectList() {
       );
     });
     setObjects(searchedObjects);
+  };
+
+  const resetCatalogue = () => {
+    setObjects(objectsData);
   };
 
   return (
@@ -59,7 +62,7 @@ function ObjectList() {
         />
       )}
       <h1 className="header-obj-list">Messier Catalogue</h1>
-      <SearchBar handleSearch={handleSearch} />
+      <SearchBar handleSearch={handleSearch} resetSearch={resetCatalogue} />
       <div className="my-container">
         {contentIsLoading && (
           <div className="placeholder-page">

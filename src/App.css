@@ -444,12 +444,10 @@ label {
 
   .form-submit-btn {
     margin: 20px;
-    /* align-self: flex-end; */
     background-color: #051367;
     border-radius: 25px;
     color: white;
     padding: 5px 20px;
-
     border: none;
   }
 }
@@ -522,16 +520,30 @@ label {
 
 /* ---------SEARCH BAR STYLE ---------- */
 
-.search-bar {
-  margin-top: 30px;
+.search-section {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
+  margin-top: 30px;
+  align-items: flex-start;
 }
+
+.search-bar {
+  width: 80%;
+}
+
 .search-input {
   border-radius: 10px;
   border: 2px solid #afe2f7;
   padding: 5px 10px;
   margin: 0 20px;
-  width: 80%;
   text-align: center;
+  width: 100%;
+}
+.search-btn {
+  /* margin: 0px 10px 10px 0; */
+  background-color: #051367;
+  border-radius: 25px;
+  color: white;
+  padding: 8px 20px;
+  border: none;
 }

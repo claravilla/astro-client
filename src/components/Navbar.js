@@ -1,5 +1,6 @@
 import ButtonLink from "./ButtonLink";
 import logo from "../images/logo.png";
+import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthContext";
 
@@ -7,9 +8,9 @@ function Navbar(props) {
   const { logoutUser } = useContext(AuthContext);
   return (
     <div className="navbar">
-      <a href="/">
+      <Link to="/">
         <img src={logo} alt="logo"></img>
-      </a>
+      </Link>
       <div className="navbar-right">
         {props.url3 && (
           <ButtonLink

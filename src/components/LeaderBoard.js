@@ -21,6 +21,7 @@ function LeaderBoard() {
   return (
     <div className="board-section">
       <h2 className="board-title">Leader board</h2>
+      {errorMessage && <p className="alert alert-danger">{errorMessage}</p>}
       <table className="leader-table">
         <thead>
           <tr>
@@ -32,7 +33,7 @@ function LeaderBoard() {
         <tbody>
           {user.map((eachUser) => {
             return (
-              <tr key={user.id}>
+              <tr key={eachUser.id}>
                 <td>{eachUser.username} </td>
                 <td>{eachUser.totalSeen} </td>
                 <td>{eachUser.score}</td>

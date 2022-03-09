@@ -5,6 +5,7 @@ import Navbar from "../components/Navbar";
 import { AuthContext } from "../context/AuthContext";
 import ButtonLink from "../components/ButtonLink";
 import LeaderBoard from "../components/LeaderBoard";
+import PictureOfTheDay from "../components/PictureOfTheDay";
 
 function HomePage() {
   const { isLoggedIn } = useContext(AuthContext);
@@ -23,7 +24,11 @@ function HomePage() {
       )}
       <div className="home-page-intro">
         <h1>Welcome to AstroList</h1>
-        <h3>Do you need to plan your next observation trip?</h3>
+        <PictureOfTheDay />
+        <h3>
+          Do you want to know what's out there? <br />
+          Do you need to plan your next observation trip?
+        </h3>
         <h4>
           Browse the Messier Catalogue to choose your next challenge. <br />
           Sign up to create your own watching list and start your ascent in the
@@ -31,8 +36,7 @@ function HomePage() {
         </h4>
 
         <ButtonLink
-          className="btn-margin"
-          classProp="btn-link-dark"
+          classProp="btn-margin btn-link-dark "
           url="/objects"
           text="Browse the catalogue"
         />

@@ -10,7 +10,21 @@ function LeaderBoard() {
     axios
       .get(url)
       .then((data) => {
-        setUser(data.data);
+        const sortedUsers = data.data.sort((a, b) => {
+          if (a.totalSeen > b.totalSeen) {
+            return -1;
+          } else if (a.totalSeen < b.totalSeen) {
+            return 1;
+          } else {
+            if (a.score > b.score) {
+              return -1;
+            } else {
+              return 1;
+            }
+          }
+        });
+        const leaderUsers = sortedUsers.slice(0, 3);
+        setUser(leaderUsers);
       })
       .catch((error) => {
         console.log(error);

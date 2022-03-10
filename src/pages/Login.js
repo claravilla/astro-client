@@ -28,7 +28,7 @@ function Login() {
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage(error.message);
+        setErrorMessage(error.response.data.error);
       });
   };
 

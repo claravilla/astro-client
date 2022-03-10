@@ -6,7 +6,6 @@ function ObjectListFilters(props) {
   const [difficulty, setDifficulty] = useState("0");
 
   const handleFiltersInputs = (e) => {
-    console.log("input function");
     e.preventDefault();
     props.handleFilters(difficulty, season, type);
   };

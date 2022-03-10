@@ -1,5 +1,5 @@
 import axios from "axios";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
 import CommentCard from "../components/CommentCard";
 import ButtonLink from "../components/ButtonLink";

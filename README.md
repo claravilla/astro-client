@@ -6,11 +6,12 @@ You can also add other object to your account but if you want to climb the leade
 
 ---
 
-## WIREFRAMES
+## PROJECT LINK
 
-![guest](https://user-images.githubusercontent.com/52048170/157739797-fbc02e99-4a3c-4934-8946-ba478a8ea021.PNG)
-![loggedin](https://user-images.githubusercontent.com/52048170/157739810-d51b0a02-bac3-4af8-904f-8fdbad37c48c.PNG)
+[Astro Watchlist](https://astro-watchlist.netlify.app/)
+
 ---
+
 
 ## BUILT WITH
 
@@ -57,10 +58,12 @@ You can also add other object to your account but if you want to climb the leade
 - isAnon
 - isPrivate
 
-## PROJECT LINK
+---
 
-[Astro Watchlist](https://astro-watchlist.netlify.app/)
+## WIREFRAMES
 
+![guest](https://user-images.githubusercontent.com/52048170/157739797-fbc02e99-4a3c-4934-8946-ba478a8ea021.PNG)
+![loggedin](https://user-images.githubusercontent.com/52048170/157739810-d51b0a02-bac3-4af8-904f-8fdbad37c48c.PNG)
 ---
 
 ## COMING UP NEXT

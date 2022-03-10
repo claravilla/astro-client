@@ -29,7 +29,7 @@ function ObjectListFilters(props) {
               setDifficulty(e.target.value);
             }}
           >
-            <option value="">Please select one</option>
+            <option value="">Difficulty</option>
             <option value="Easy">Easy</option>
             <option value="Medium">Medium</option>
             <option value="Hard">Hard</option>
@@ -41,7 +41,7 @@ function ObjectListFilters(props) {
               setSeason(e.target.value);
             }}
           >
-            <option value="">Please select one</option>
+            <option value="">Season</option>
             <option value="Winter">Winter</option>
             <option value="Spring">Spring</option>
             <option value="Summer">Summer</option>
@@ -54,7 +54,7 @@ function ObjectListFilters(props) {
               setType(e.target.value);
             }}
           >
-            <option value="">Please select one</option>
+            <option value="">Type</option>
             <option value="Double star">Double star</option>
             <option value="Emission Nebula">Emission Nebula</option>
             <option value="Galaxy">Galaxy</option>

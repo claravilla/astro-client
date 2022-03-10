@@ -52,7 +52,7 @@ function EventForm(props) {
     difficulty: difficulty,
     seen: seen,
     score: myEventData.score,
-    ojectCatalogueId: myEventData._id,
+    objectCatalogueId: myEventData._id,
     userId: user._id,
   };
 

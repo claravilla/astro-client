@@ -29,7 +29,7 @@ function EditEventForm(props) {
     difficulty: difficulty,
     seen: seen,
     score: props.eventData.score,
-    ojectCatalogueId: props.eventData.ojectCatalogueId,
+    objectCatalogueId: props.eventData.objectCatalogueId,
     userId: props.eventData.userId,
   };
 

@@ -31,10 +31,10 @@ function EventCard(props) {
 
   return (
     <div className="my-card event-card">
-      {props.event.ojectCatalogueId !== "" && (
+      {props.event.objectCatalogueId !== "" && (
         <Link
           className="title-a-tag"
-          to={`/objects/${props.event.ojectCatalogueId}`}
+          to={`/objects/${props.event.objectCatalogueId}`}
         >
           <div className="event-header">
             <h3>{props.event.name}</h3>
@@ -72,7 +72,7 @@ function EventCard(props) {
         </Link>
       )}
 
-      {props.event.ojectCatalogueId === "" && (
+      {props.event.objectCatalogueId === "" && (
         <div className="event-header">
           <h3>{props.event.name}</h3>
           {props.event.seen ? (

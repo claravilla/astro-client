@@ -28,7 +28,6 @@ function SingleObject() {
         setContentIsLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessage(error.message);
       });
   }, []);
@@ -55,7 +54,6 @@ function SingleObject() {
         setComments(myObjectComments);
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessage(error);
       });
   };

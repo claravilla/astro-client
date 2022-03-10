@@ -11,23 +11,23 @@ function LeaderBoard() {
       .get(url)
       .then((data) => {
         const sortedUsers = data.data.sort((a, b) => {
-          if (a.totalSeen > b.totalSeen) {
+          //sorting user per score and if equal, totalSeen
+          if (a.score > b.score) {
             return -1;
-          } else if (a.totalSeen < b.totalSeen) {
+          } else if (a.score < b.score) {
             return 1;
           } else {
-            if (a.score > b.score) {
+            if (a.totalSeen > b.totalSeen) {
               return -1;
             } else {
               return 1;
             }
           }
         });
-        const leaderUsers = sortedUsers.slice(0, 3);
+        const leaderUsers = sortedUsers.slice(0, 3); //only displaying the top 3 users
         setUser(leaderUsers);
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessage(error.message);
       });
   }, []);

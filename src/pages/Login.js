@@ -27,7 +27,6 @@ function Login() {
         navigate("/profile");
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessage(error.response.data.error);
       });
   };

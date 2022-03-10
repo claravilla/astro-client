@@ -22,7 +22,6 @@ function AddEventFromCatalogue() {
         setContentIsLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessage(error.message);
       });
   }, []);

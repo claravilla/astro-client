@@ -38,7 +38,7 @@ function EditEventForm(props) {
     const url =
       process.env.REACT_APP_API_URL + "/api/events/" + props.eventData._id;
 
-    //fetchin the token as the event route is protected
+    //fetching the token as the event route is protected
     const storedToken = localStorage.getItem("authToken");
 
     axios
@@ -60,7 +60,6 @@ function EditEventForm(props) {
         navigate("/profile");
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessage(error.message);
       });
   };

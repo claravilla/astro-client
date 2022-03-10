@@ -30,7 +30,6 @@ function Profile() {
         setContentIsLoading(false);
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessage(error.message);
       });
   }, [userId]);

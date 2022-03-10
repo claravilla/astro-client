@@ -29,7 +29,6 @@ function AuthContextWrapper(props) {
           setUser(response.data);
         })
         .catch((error) => {
-          console.log(error);
           setIsLoggedIn(false);
           setIsLoading(false);
           setUser(null);

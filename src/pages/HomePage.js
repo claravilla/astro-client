@@ -1,7 +1,6 @@
 import { useContext } from "react";
 import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
-// import PictureOfTheDay from "../components/PictureOfTheDay";
 import { AuthContext } from "../context/AuthContext";
 import ButtonLink from "../components/ButtonLink";
 import LeaderBoard from "../components/LeaderBoard";

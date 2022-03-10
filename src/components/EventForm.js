@@ -9,9 +9,11 @@ function EventForm(props) {
   //if event is coming from the catalogue, a props with object data is passed.
   //if event is coming from my profile, the props obj is empty
 
+  //creating an empty object so it can be referenced without errors
+  //setting its property to empty string so the form doesn't display undefined
+
   if (props.eventData === undefined) {
-    myEventData = {}; //creating an empty object so it can be referenced without errors
-    //setting its property to empty string so the form doesn't display undefined
+    myEventData = {};
     myEventData.commonName = "";
     myEventData.messier = "";
     myEventData.object = "";
@@ -22,7 +24,7 @@ function EventForm(props) {
     myEventData = Object.assign({}, props.eventData); //assigning to my object so it can be referenced in the form
   }
 
-  //set value of form input from the object catalogue if any or they will empty
+  //set value of form input from the object catalogue (if any) or the empty object
   const [name, setName] = useState(
     `${myEventData.commonName} ${myEventData.messier}`
   );
@@ -61,7 +63,7 @@ function EventForm(props) {
 
     const url = process.env.REACT_APP_API_URL + "/api/events";
 
-    //fetchin the token as the event route is protected
+    //fetching the token as the event route is protected
     const storedToken = localStorage.getItem("authToken");
 
     axios
@@ -71,7 +73,6 @@ function EventForm(props) {
         },
       })
       .then((response) => {
-        console.log("event added: " + response.data);
         setName("");
         setObjectType("");
         setTime("");
@@ -84,13 +85,12 @@ function EventForm(props) {
         navigate("/profile");
       })
       .catch((error) => {
-        console.log(error);
         setErrorMessage(error.message);
       });
   };
 
   //set messier from the catalogue
-  //fill name with messier and commonName
+  //fill name with messier + commonName
   return (
     <div>
       <form className="form" onSubmit={createNewEvent}>

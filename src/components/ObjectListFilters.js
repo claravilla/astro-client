@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 function ObjectListFilters(props) {
+  //setting those to a dummy value so we always pass something to the handleFitlers function and we don't ahve empty parameters
   const [season, setSeason] = useState("0");
   const [type, setType] = useState("0");
   const [difficulty, setDifficulty] = useState("0");

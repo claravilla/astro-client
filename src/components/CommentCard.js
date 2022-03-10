@@ -2,9 +2,11 @@ function CommentCard(props) {
   return (
     <div className="comment-card">
       <p className="comment-title">
-        Created by {props.comment.username} on {props.comment.date}
+        Created by <b>{props.comment.username} </b>on {props.comment.date}
       </p>
-      <p>{props.comment.text}</p>
+      <p>
+        <em>{props.comment.text}</em>
+      </p>
     </div>
   );
 }

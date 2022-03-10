@@ -3,7 +3,10 @@ function Footer() {
     <div className="footer">
       <h6>Resources</h6>
       <div className="resources">
-        {/* <p>Picture of the day</p> */}
+        <a href="https://api.nasa.gov/">
+          <p>Picture of the day</p>
+        </a>
+
         <p>
           <a href="https://lguerriero.opendatasoft.com/pages/home/">
             Catalogue data

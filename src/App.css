@@ -287,12 +287,6 @@ th {
     border: 5px solid #051367;
     font-family: "Mukta Vaani", sans-serif;
   }
-
-  .add-event-btn {
-    margin: 50px 5px 0px 70px;
-    align-self: flex-start;
-    font-family: "Mukta Vaani", sans-serif;
-  }
 }
 
 @media (min-width: 1161px) {
@@ -313,7 +307,18 @@ th {
     width: 70%;
     font-family: "Mukta Vaani", sans-serif;
   }
+}
 
+@media (max-width: 1535px) {
+  .add-event-btn {
+    margin: 50px 5px 0px 10px;
+    align-self: flex-start;
+    font-family: "Mukta Vaani", sans-serif;
+    width: 100%;
+  }
+}
+
+@media (min-width: 1536px) {
   .add-event-btn {
     margin: 50px 5px 0px 70px;
     align-self: flex-start;
@@ -417,7 +422,6 @@ td {
 }
 
 .comment-title {
-  font-style: italic;
   font-family: "Mukta Vaani", sans-serif;
 }
 

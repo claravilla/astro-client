@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import EditEventForm from "../components/EditEventForm";
+import Footer from "../components/Footer";
 import telescope from "../images/telescope.gif";
 
 function EditEvent(props) {

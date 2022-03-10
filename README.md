@@ -1,70 +1,92 @@
-# Getting Started with Create React App
+# ASTRO WATCHLIST
+
+Built for amateurs astronomers, the app is an easy way to browse what’s in the Messier catalogue and create your own watch list.
+You can add object you've seen or you want to see, to help you plan your next field trip.
+You can also add other object to your account but if you want to climb the leader board, only Messier objects count!
+
+---
+
+## WIREFRAMES
+
+---
+
+## BUILT WITH
+
+- React.js
+- Axios
+- Bootstrap
+- Deployed on Netlify
+
+---
+
+## COMPONENT AND PAGE STRUCTURE
+
+### Pages
+
+- Homepage
+- Sign up
+- Log in
+- ObjectList
+- SingleObject
+- Profile
+- AddEvent
+- AddEventFromCatalogue
+- EditEvent
+- ErrorPage
+
+### Components
+
+### Content
+
+- Navbar
+- ButtonLink
+- PictureOfTheDay
+- LeaderBoard
+- SearchBar
+- ObjectListFilters
+- ObjectCard
+- Footer
+- CommentCard
+- CommentForm
+- EventCard
+- EventForm
+- EditEventForm
+
+#### Protected Routes
+
+- isAnon
+- isPrivate
+
+## PROJECT LINK
+
+[Astro Watchlist](https://astro-watchlist.netlify.app/)
+
+---
+
+## COMING UP NEXT
+
+- Add picture to the user events
+- Add filters for the events in the account
+- Ensure user cannot add the same object from the catalogue more than once
+- Edit and Delete comments
+- Add more catalogues i.e. planets, constellations
+- Be able to see other comments made by the same user
+
+---
+
+## RESOURCES
+
+### Technology
+
+[React](https://reactjs.org/)
+[Axios](https://www.npmjs.com/package/axios)
+[Bootstrap](https://getbootstrap.com/)  
+[Netlify](https://www.netlify.com/)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+### Content
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
-
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[NASA Picture of the Day Api](https://api.nasa.gov/) and [API docs](https://github.com/nasa/apod-api)  
+[Messier catalogue data](https://lguerriero.opendatasoft.com/pages/home/)  
+[Messier catalogue difficulty level rating](https://www.nexstarsite.com/OddsNEnds/MessierDifficultyRatings.htm)

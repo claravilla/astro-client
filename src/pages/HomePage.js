@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
 import { AuthContext } from "../context/AuthContext";
+import Navbar from "../components/Navbar";
+import PictureOfTheDay from "../components/PictureOfTheDay";
 import ButtonLink from "../components/ButtonLink";
 import LeaderBoard from "../components/LeaderBoard";
-import PictureOfTheDay from "../components/PictureOfTheDay";
+import Footer from "../components/Footer";
 
 function HomePage() {
   const { isLoggedIn } = useContext(AuthContext);

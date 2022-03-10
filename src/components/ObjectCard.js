@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 function ObjectCard(props) {
   return (
     <div className="my-card light-blue">

@@ -1,6 +1,6 @@
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import EventForm from "../components/EventForm";
+import Footer from "../components/Footer";
 
 function AddEvent() {
   return (

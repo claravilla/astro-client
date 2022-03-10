@@ -1,13 +1,13 @@
-import axios from "axios";
-import { useParams } from "react-router-dom";
 import { useState, useEffect, useContext } from "react";
+import { useParams } from "react-router-dom";
+import axios from "axios";
+import { AuthContext } from "../context/AuthContext";
+import Navbar from "../components/Navbar";
 import CommentCard from "../components/CommentCard";
+import CommentForm from "../components/CommentForm";
 import ButtonLink from "../components/ButtonLink";
 import Footer from "../components/Footer";
-import Navbar from "../components/Navbar";
-import { AuthContext } from "../context/AuthContext";
 import telescope from "../images/telescope.gif";
-import CommentForm from "../components/CommentForm";
 
 function SingleObject() {
   const { id } = useParams();

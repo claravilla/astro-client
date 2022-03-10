@@ -1,10 +1,10 @@
-import axios from "axios";
 import { useContext, useState, useEffect } from "react";
+import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
-import ButtonLink from "../components/ButtonLink";
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import EventCard from "../components/EventCard";
+import ButtonLink from "../components/ButtonLink";
+import Footer from "../components/Footer";
 import telescope from "../images/telescope.gif";
 
 function Profile() {

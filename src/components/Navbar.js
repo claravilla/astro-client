@@ -1,8 +1,8 @@
+import { useContext } from "react";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 import ButtonLink from "./ButtonLink";
 import logo from "../images/logo.png";
-import { Link } from "react-router-dom";
-import { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
 
 function Navbar(props) {
   const { logoutUser } = useContext(AuthContext);

@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import Footer from "../components/Footer";
+import { AuthContext } from "../context/AuthContext";
 import Navbar from "../components/Navbar";
 import ButtonLink from "../components/ButtonLink";
-import { AuthContext } from "../context/AuthContext";
+import Footer from "../components/Footer";
 
 function Signup() {
   const [username, setUsername] = useState("");

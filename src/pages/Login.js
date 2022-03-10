@@ -1,10 +1,10 @@
 import { useState, useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom";
-import Footer from "../components/Footer";
 import Navbar from "../components/Navbar";
 import ButtonLink from "../components/ButtonLink";
+import Footer from "../components/Footer";
 
 function Login() {
   const [email, setEmail] = useState("");

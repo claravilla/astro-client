@@ -1,12 +1,12 @@
-import axios from "axios";
 import { useState, useEffect, useContext } from "react";
-import Footer from "../components/Footer";
-import ObjectCard from "../components/ObjectCard";
-import Navbar from "../components/Navbar";
+import axios from "axios";
 import { AuthContext } from "../context/AuthContext";
-import telescope from "../images/telescope.gif";
+import Navbar from "../components/Navbar";
 import SearchBar from "../components/SearchBar";
 import ObjectListFilters from "../components/ObjectListFilters";
+import ObjectCard from "../components/ObjectCard";
+import Footer from "../components/Footer";
+import telescope from "../images/telescope.gif";
 
 function ObjectList() {
   const url = process.env.REACT_APP_API_URL + "/api/astro-objects";

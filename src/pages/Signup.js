@@ -24,7 +24,6 @@ function Signup() {
     axios
       .post(url, newUser)
       .then((data) => {
-        console.log(data);
         const authToken = data.data.authToken;
         setUsername("");
         setEmail("");

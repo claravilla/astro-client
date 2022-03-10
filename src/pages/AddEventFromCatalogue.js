@@ -18,7 +18,6 @@ function AddEventFromCatalogue() {
     axios
       .get(url)
       .then((data) => {
-        console.log(data.data);
         setObjectData(data.data);
         setContentIsLoading(false);
       })

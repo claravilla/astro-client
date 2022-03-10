@@ -47,9 +47,6 @@ function ObjectList() {
   };
 
   const handleFilters = (difficulty, season, type) => {
-    console.log("handle filter");
-
-    console.log(typeof difficulty, typeof season, typeof type);
     let filteredObjects = [];
 
     if (difficulty !== "0") {

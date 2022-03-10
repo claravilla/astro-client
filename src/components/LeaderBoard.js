@@ -11,7 +11,6 @@ function LeaderBoard() {
       .get(url)
       .then((data) => {
         setUser(data.data);
-        console.log(data.data);
       })
       .catch((error) => {
         console.log(error);
@@ -27,8 +26,8 @@ function LeaderBoard() {
         <thead>
           <tr>
             <th>Username</th>
-            <th>Total Seen</th>
-            <th>Current Score</th>
+            <th>Total Seen*</th>
+            <th>Current Score*</th>
           </tr>
         </thead>
         <tbody>
@@ -43,6 +42,10 @@ function LeaderBoard() {
           })}
         </tbody>
       </table>
+      <p>
+        Based on Messier objects only when your event is created from the
+        catalogue
+      </p>
     </div>
   );
 }

@@ -8,6 +8,8 @@ You can also add other object to your account but if you want to climb the leade
 
 ## WIREFRAMES
 
+![guest](https://user-images.githubusercontent.com/52048170/157739797-fbc02e99-4a3c-4934-8946-ba478a8ea021.PNG)
+![loggedin](https://user-images.githubusercontent.com/52048170/157739810-d51b0a02-bac3-4af8-904f-8fdbad37c48c.PNG)
 ---
 
 ## BUILT WITH
@@ -36,8 +38,6 @@ You can also add other object to your account but if you want to climb the leade
 
 ### Components
 
-### Content
-
 - Navbar
 - ButtonLink
 - PictureOfTheDay
@@ -52,7 +52,7 @@ You can also add other object to your account but if you want to climb the leade
 - EventForm
 - EditEventForm
 
-#### Protected Routes
+### Protected Routes
 
 - isAnon
 - isPrivate

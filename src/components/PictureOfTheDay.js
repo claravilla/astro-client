@@ -7,8 +7,6 @@ function PictureOfTheDay() {
     "https://api.nasa.gov/planetary/apod?api_key=" +
     process.env.REACT_APP_NASA_KEY;
 
-  console.log(url);
-
   const [imageData, setImage] = useState("");
   const [contentIsLoading, setContentIsLoading] = useState(true);
   const [errorMessage, setErrorMessage] = useState("");
@@ -21,7 +19,7 @@ function PictureOfTheDay() {
         setContentIsLoading(false);
       })
       .catch((error) => {
-        console.log(error);
+        setErrorMessage(error.message);
       });
   }, []);
 

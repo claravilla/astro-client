@@ -11,6 +11,7 @@ function LeaderBoard() {
       .get(url)
       .then((data) => {
         setUser(data.data);
+        console.log(data.data);
       })
       .catch((error) => {
         console.log(error);

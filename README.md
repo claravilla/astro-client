@@ -110,6 +110,8 @@ You can also add other object to your account but if you want to climb the leade
 
 • **As** a registered user of this app **I want to** be sure my profile page is not accessible to other user **So** I can safely use the app.
 
+---
+
 ## COMING UP NEXT
 
 - Add picture to the user events
@@ -136,3 +138,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 [NASA Picture of the Day Api](https://api.nasa.gov/) and [API docs](https://github.com/nasa/apod-api)  
 [Messier catalogue data](https://lguerriero.opendatasoft.com/pages/home/)  
 [Messier catalogue difficulty level rating](https://www.nexstarsite.com/OddsNEnds/MessierDifficultyRatings.htm)
+
+## BUILT BY
+
+[Clara Villa](https://github.com/claravilla)

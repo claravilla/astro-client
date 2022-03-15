@@ -45,8 +45,22 @@ function App() {
             </IsPrivate>
           }
         />
-        <Route path="/add-event" element={<AddEvent />}></Route>
-        <Route path="/add-event/:id" element={<AddEventFromCatalogue />} />
+        <Route
+          path="/add-event"
+          element={
+            <IsPrivate>
+              <AddEvent />
+            </IsPrivate>
+          }
+        ></Route>
+        <Route
+          path="/add-event/:id"
+          element={
+            <IsPrivate>
+              <AddEventFromCatalogue />
+            </IsPrivate>
+          }
+        />
         <Route path="/edit-event/:id" element={<EditEvent />} />
         <Route path="/*" element={<ErrorPage />} />
       </Routes>
